@@ -82,7 +82,7 @@
 
  @param filePath 文件的路径或文件夹的路径
  */
-- (BOOL)deleteFile:(nonnull NSString *)filePath;
++ (BOOL)deleteFile:(nonnull NSString *)filePath;
 
 
 /**
@@ -91,7 +91,7 @@
  @param originFilePath 某个文件或文件夹的路径
  @param targetFilePath 指定的路径
  */
-- (BOOL)moveFielFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath;
++ (BOOL)moveFielFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath;
 
 
 @end

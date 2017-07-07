@@ -40,10 +40,9 @@
     NSString *documentsDir = [paths objectAtIndex:0];
     
     NSString *fileDir =nameSpace?[documentsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",nameSpace]]:documentsDir;
-    [[NSFileManager defaultManager]   createDirectoryAtPath:fileDir withIntermediateDirectories:YES attributes:nil error:nil];
-    
-    [[NSFileManager defaultManager]   createDirectoryAtURL:[NSURL URLWithString:fileDir] withIntermediateDirectories:YES attributes:nil error:nil];
     NSString *filePath =[fileDir stringByAppendingString:[NSString stringWithFormat:@"/%@",fileName]];
+    [[NSFileManager defaultManager]   createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:nil];
+    
     return filePath;
 
 
@@ -59,27 +58,37 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cacheDir = [paths objectAtIndex:0];
     NSString *fileDir =nameSpace?[cacheDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",nameSpace]]:cacheDir;
-    [[NSFileManager defaultManager]   createDirectoryAtPath:fileDir withIntermediateDirectories:YES attributes:nil error:nil];
-    NSString *filePath=[fileDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",fileName]];
-    
+     NSString *filePath=[fileDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",fileName]];
+    [[NSFileManager defaultManager]   createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:nil];
+   
     return filePath;
 }
 
-- (BOOL)deleteFile:(nonnull NSString *)filePath{
++ (BOOL)deleteFile:(nonnull NSString *)filePath{
     NSError *error =nil;
     if (!filePath) {
         return NO;
     }
+    
   return [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
     
 }
 
-- (BOOL)moveFielFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath{
++ (BOOL)moveFielFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath{
     NSError *error = nil;
     if (!(originFilePath&&targetFilePath)) {
         return NO;
     }
-    return [[NSFileManager defaultManager] moveItemAtPath:originFilePath toPath:targetFilePath error:&error];
+    
+    if ([self isExistsFile:targetFilePath]) {
+        [self deleteFile:targetFilePath];
+    }
+    
+    BOOL result = [[NSFileManager defaultManager] moveItemAtPath:originFilePath toPath:targetFilePath error:&error];
+    if (result) {
+        [self deleteFile:originFilePath];
+    }
+    return result;
 }
 
 @end

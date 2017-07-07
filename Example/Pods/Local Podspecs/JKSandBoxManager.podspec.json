@@ -1,9 +1,9 @@
 {
   "name": "JKSandBoxManager",
   "version": "0.1.0",
-  "summary": "A short description of JKSandBoxManager.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/HHL110120/JKSandBoxManager",
+  "summary": "the manager of sandbox,it contain the operations of sandbox.",
+  "description": "the manager of sandbox,it contain the operations of sandbox.it will be update with demand.",
+  "homepage": "https://github.com/xindizhiyin2014/JKSandBoxManager",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,7 +12,7 @@
     "HHL110120": "929097264@qq.com"
   },
   "source": {
-    "git": "https://github.com/HHL110120/JKSandBoxManager.git",
+    "git": "https://github.com/xindizhiyin2014/JKSandBoxManager.git",
     "tag": "0.1.0"
   },
   "platforms": {
