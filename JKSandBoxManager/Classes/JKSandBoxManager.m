@@ -84,11 +84,7 @@
         [self deleteFile:targetFilePath];
     }
     
-    BOOL result = [[NSFileManager defaultManager] moveItemAtPath:originFilePath toPath:targetFilePath error:&error];
-    if (result) {
-        [self deleteFile:originFilePath];
-    }
-    return result;
+    return [[NSFileManager defaultManager] moveItemAtPath:originFilePath toPath:targetFilePath error:&error];
 }
 
 @end
