@@ -1,0 +1,6 @@
+framework module JKSandBoxManager {
+  umbrella header "JKSandBoxManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
