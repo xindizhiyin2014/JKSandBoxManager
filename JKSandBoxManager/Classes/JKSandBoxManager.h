@@ -27,16 +27,31 @@
  @param filePath 文件的沙盒路径
  @return 文件的后缀名
  */
-+(nullable NSString *)getPathExtensionWith:(nullable NSString *)filePath;
++ (nullable NSString *)getPathExtensionWith:(nullable NSString *)filePath;
+
+/**
+ 获取某一路径下的文件列表，不包含文件夹
+
+ @param filePath 文件的路径
+ @return 文件列表
+ */
++ (nonnull NSArray *)filesWithoutFolderAtPath:(nonnull NSString *)filePath;
 
 
+/**
+ 获取某一路径下的文件列表，包含文件夹
+
+ @param filePath 文件的路径
+ @return 文件列表
+ */
++ (nonnull NSArray *)filesWithFolderAtPath:(nonnull NSString *)filePath;
 /**
  判断某个路径下的文件是否存在
 
  @param filePath 文件的沙盒路径
  @return 文件是否存在的状态 YES or NO
  */
-+(BOOL)isExistsFile:(nullable NSString *)filePath;
++ (BOOL)isExistsFile:(nullable NSString *)filePath;
 
 
 /**
@@ -45,7 +60,7 @@
  @param fileName 文件的名字
  @return 文件的沙盒路径
  */
-+(nonnull NSString *)createDocumentsFilePathWith:(nullable NSString *)fileName;
++ (nonnull NSString *)createDocumentsFilePathWith:(nullable NSString *)fileName;
 
 
 /**
@@ -55,7 +70,7 @@
  @param fileName 文件的名字
  @return 文件的沙盒路径
  */
-+(nonnull NSString *)createDocumentsFilePathWith:(nullable NSString *)nameSpace With:(nullable NSString *)fileName;
++ (nonnull NSString *)createDocumentsFilePathWith:(nullable NSString *)nameSpace With:(nullable NSString *)fileName;
 
 
 /**
@@ -64,7 +79,7 @@
  @param fileName 文件的名字
  @return 文件的沙盒路径
  */
-+(nonnull NSString *)createCacheFilePathWith:(nullable NSString *)fileName;
++ (nonnull NSString *)createCacheFilePathWith:(nullable NSString *)fileName;
 
 
 /**
@@ -74,7 +89,7 @@
  @param fileName 文件的名字
  @return 文件的沙盒路径
  */
-+(nonnull NSString *)createCacheFilePathWith:(nullable NSString *)nameSpace With:(nullable NSString *)fileName;
++ (nonnull NSString *)createCacheFilePathWith:(nullable NSString *)nameSpace With:(nullable NSString *)fileName;
 
 
 /**
@@ -91,7 +106,16 @@
  @param originFilePath 某个文件或文件夹的路径
  @param targetFilePath 指定的路径
  */
-+ (BOOL)moveFielFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath;
++ (BOOL)moveFileFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath;
+
+/**
+ 将某个文件或者文件夹复制到指定的路径下
+ 
+ @param originFilePath 某个文件或文件夹的路径
+ @param targetFilePath 指定的路径
+ */
++ (BOOL)copyFileFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath;
+
 
 
 @end

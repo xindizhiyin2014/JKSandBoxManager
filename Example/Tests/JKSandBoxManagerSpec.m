@@ -20,6 +20,7 @@ describe(@"JKSandBoxManager", ^{
            [[[JKSandBoxManager getPathExtensionWith:filePath] should] equal:@"png"];
        });
         
+        
         it(@"isExistsFile", ^{
             [[theValue([JKSandBoxManager isExistsFile:@"123.png"]) shouldNot] equal:theValue(YES)];
             
@@ -58,12 +59,48 @@ describe(@"JKSandBoxManager", ^{
             NSString *nameSpacePath = [JKSandBoxManager createDocumentsFilePathWith:@"nameSpace"];
             [[nameSpacePath shouldNot] beNil];
             NSString *targetFilePath = [NSString stringWithFormat:@"%@/name.txt",nameSpacePath];
-            [[theValue([JKSandBoxManager moveFielFrom:filePath to:targetFilePath]) should] equal:theValue(YES)];
+            [[theValue([JKSandBoxManager moveFileFrom:filePath to:targetFilePath]) should] equal:theValue(YES)];
            [[theValue([JKSandBoxManager isExistsFile:filePath]) shouldNot] equal:theValue(YES)];
           [[theValue([JKSandBoxManager isExistsFile:targetFilePath]) should] equal:theValue(YES)];
 
 
         });
+        
+        it(@"copyFielFrom: to:", ^{
+            NSString *filePath = [JKSandBoxManager createCacheFilePathWith:@"jackName.txt"];
+            [[filePath shouldNot] beNil];
+            NSString *nameSpacePath = [JKSandBoxManager createDocumentsFilePathWith:@"nameSpace1"];
+            [[nameSpacePath shouldNot] beNil];
+            NSString *targetFilePath = [NSString stringWithFormat:@"%@/jackName.txt",nameSpacePath];
+            [[theValue([JKSandBoxManager copyFileFrom:filePath to:targetFilePath]) should] equal:theValue(YES)];
+            [[theValue([JKSandBoxManager isExistsFile:filePath]) should] equal:theValue(YES)];
+            [[theValue([JKSandBoxManager isExistsFile:targetFilePath]) should] equal:theValue(YES)];
+            
+            
+        });
+        
+        static NSString *folderePath =nil;
+beforeEach(^{
+    folderePath = [JKSandBoxManager createCacheFilePathWith:@"testfolder"];
+    [[folderePath shouldNot] beNil];
+    
+    NSString *filePath = [JKSandBoxManager createCacheFilePathWith:@"testfolder" With:@"testFile.txt"];
+    [[filePath shouldNot] beNil];
+    
+    NSString *folderePath1 = [JKSandBoxManager createCacheFilePathWith:@"testfolder" With:@"folder"];
+    [[folderePath1 shouldNot] beNil];
+});
+        it(@"filesWithoutFolderAtPath", ^{
+            NSArray *files = [JKSandBoxManager filesWithoutFolderAtPath:folderePath];
+            [[theValue(files.count) should] equal:theValue(1)];
+  
+        });
+        
+        it(@"filesWithFolderAtPath", ^{
+            NSArray *files = [JKSandBoxManager filesWithFolderAtPath:folderePath];
+            [[theValue(files.count) should] equal:theValue(2)];
+        });
+
         
     });
 });
