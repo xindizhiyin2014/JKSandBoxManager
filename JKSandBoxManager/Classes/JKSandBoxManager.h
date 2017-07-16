@@ -58,9 +58,10 @@
  在沙盒documents文件夹中创建文件的路径
 
  @param fileName 文件的名字
+ @param data 要写入的二进制数据
  @return 文件的沙盒路径
  */
-+ (nonnull NSString *)createDocumentsFilePathWith:(nullable NSString *)fileName;
++ (nullable NSString *)createDocumentsFilePathWithFileName:(nullable NSString *)fileName data:(nullable NSData *)data;
 
 
 /**
@@ -68,18 +69,20 @@
 
  @param nameSpace 指定的文件夹名字
  @param fileName 文件的名字
+ @param data 要写入的二进制数据
  @return 文件的沙盒路径
  */
-+ (nonnull NSString *)createDocumentsFilePathWith:(nullable NSString *)nameSpace With:(nullable NSString *)fileName;
++ (nullable NSString *)createDocumentsFilePathWithNameSpace:(nullable NSString *)nameSpace fileName:(nullable NSString *)fileName data:(nullable NSData *)data;
 
 
 /**
  在cache文件夹下创建文件的路径
 
  @param fileName 文件的名字
+ @param data 要写入的二进制数据
  @return 文件的沙盒路径
  */
-+ (nonnull NSString *)createCacheFilePathWith:(nullable NSString *)fileName;
++ (nullable NSString *)createCacheFilePathWithFileName:(nullable NSString *)fileName data:(nullable NSData *)data;
 
 
 /**
@@ -87,11 +90,32 @@
 
  @param nameSpace 指定的文件夹名字
  @param fileName 文件的名字
+ @param data 要写入的二进制数据
  @return 文件的沙盒路径
  */
-+ (nonnull NSString *)createCacheFilePathWith:(nullable NSString *)nameSpace With:(nullable NSString *)fileName;
++ (nullable NSString *)createCacheFilePathWithNameSpace:(nullable NSString *)nameSpace fileName:(nullable NSString *)fileName data:(nullable NSData *)data;
 
+/**
+ 在cache文件夹下创建文件夹
 
+ @param folderName 文件夹的名字
+ @return 创建的文件夹沙盒路径
+ */
++ (nullable NSString *)createCacheFilePathWithFolderName:(nullable NSString *)folderName;
+/**
+ 在documents文件下创建文件夹
+
+ @param folderName 文件夹名字
+ @return 创建的文件夹沙盒路径
+ */
++ (nullable NSString *)createDocumentsFilePathWithFolderName:(nullable NSString *)folderName;
+/**
+ 根据沙盒路径创建文件夹路径
+
+ @param folderPath 文件夹路径
+ @return 文件夹的路径
+ */
++ (nonnull NSString *)createDirectoryWithPath:(nonnull NSString *)folderPath;
 /**
  删除指定路径的文件或指定指定文件夹下的所有文件
 

@@ -47,8 +47,9 @@
     //遍历目录迭代器，获取各个文件路径
     NSString *filename=nil;
     while (filename = [dirEnum nextObject]) {
-        
+        if (![filename isEqualToString:@".DS_Store"]) {//存在后缀名的文件
             [files addObject:filename];
+        }
        
     }
     return [files copy];
@@ -61,38 +62,74 @@
 }
 
 
-+ (nonnull NSString *)createDocumentsFilePathWith:(NSString *)fileName{
++ (nullable NSString *)createDocumentsFilePathWithFileName:(nullable NSString *)fileName data:(nullable NSData *)data{
     
-    return [self createDocumentsFilePathWith:nil With:fileName];
+    return [self createDocumentsFilePathWithNameSpace:nil fileName:fileName data:data];
 }
 
-+ (nonnull NSString *)createDocumentsFilePathWith:(nullable NSString *)nameSpace With:(nullable NSString *)fileName{
++ (nullable NSString *)createDocumentsFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data{
+
+    if (!data) {
+        return nil;
+    }
+    
+    NSString *fileDir =[self createDocumentsFilePathWithFolderName:nameSpace];
+    NSString *filePath =[fileDir stringByAppendingString:[NSString stringWithFormat:@"/%@",fileName]];
+    [data writeToFile:filePath atomically:YES];
+    return filePath;
+}
+
+
++ (nullable NSString *)createCacheFilePathWithFileName:(NSString *)fileName data:(NSData *)data{
+    
+    return [self createCacheFilePathWithNameSpace:nil fileName:fileName data:data];
+}
+
++ (nullable NSString *)createCacheFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data{
+    if (!data) {
+        return nil;
+    }
+    
+    NSString *fileDir =[self createCacheFilePathWithFolderName:nameSpace];
+    NSString *filePath =[fileDir stringByAppendingString:[NSString stringWithFormat:@"/%@",fileName]];
+    [data writeToFile:filePath atomically:YES];
+    return filePath;
+}
+
++ (nullable NSString *)createCacheFilePathWithFolderName:(nullable NSString *)folderName{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cacheDir = [paths objectAtIndex:0];
+    NSString *folderPath=folderName?[cacheDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",folderName]]:cacheDir;
+    if ([self isExistsFile:folderPath]) {
+        return folderPath;
+    }
+    [[NSFileManager defaultManager]   createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:nil];
+    
+    return folderPath;
+    
+}
+
+
++ (nullable NSString *)createDocumentsFilePathWithFolderName:(nullable NSString *)folderName{
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
     
-    NSString *fileDir =nameSpace?[documentsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",nameSpace]]:documentsDir;
-    NSString *filePath =[fileDir stringByAppendingString:[NSString stringWithFormat:@"/%@",fileName]];
-    [[NSFileManager defaultManager]   createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:nil];
-    
-    return filePath;
-
-
+    NSString *folderPath =folderName?[documentsDir stringByAppendingString:[NSString stringWithFormat:@"/%@",folderName]]:documentsDir;
+    if ([self isExistsFile:folderPath]) {
+        return folderPath;
+    }
+    [[NSFileManager defaultManager]   createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:nil];
+    return folderPath;
 }
 
-
-+ (NSString *)createCacheFilePathWith:(NSString *)fileName{
++ (nonnull NSString *)createDirectoryWithPath:(nonnull NSString *)filePath{
+    if ([self isExistsFile:filePath]) {
+        return filePath;
+    }
     
-    return [self createCacheFilePathWith:nil With:fileName];
-}
-
-+ (nonnull NSString *)createCacheFilePathWith:(nullable NSString *)nameSpace With:(nullable NSString *)fileName{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cacheDir = [paths objectAtIndex:0];
-    NSString *fileDir =nameSpace?[cacheDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",nameSpace]]:cacheDir;
-     NSString *filePath=[fileDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",fileName]];
     [[NSFileManager defaultManager]   createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:nil];
-   
+    
     return filePath;
 }
 
@@ -129,10 +166,7 @@
     if ([self isExistsFile:targetFilePath]) {
         [self deleteFile:targetFilePath];
     }
-    
     return [[NSFileManager defaultManager] copyItemAtPath:originFilePath toPath:targetFilePath error:&error];
-
-
 }
 
 @end

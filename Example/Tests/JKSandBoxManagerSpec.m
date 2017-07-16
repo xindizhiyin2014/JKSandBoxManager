@@ -30,33 +30,43 @@ describe(@"JKSandBoxManager", ^{
         });
         
         it(@"createDocumentsFilePathWith:", ^{
-            NSString *filePath = [JKSandBoxManager createDocumentsFilePathWith:@"nn.txt"];
+            NSString *str = @"nnnnnnnnnnnnn";
+            NSData *data =[str dataUsingEncoding:kCFStringEncodingUTF8];
+            NSString *filePath = [JKSandBoxManager createDocumentsFilePathWithFileName:@"nn.txt" data:data];
             [[filePath shouldNot] beNil];
             [[theValue([JKSandBoxManager isExistsFile:filePath]) should] equal:theValue(YES)];
             
         });
         
         it(@"createCacheFilePathWith:", ^{
-            NSString *filePath = [JKSandBoxManager createCacheFilePathWith:@"mmm.txt"];
+            NSString *str = @"mmmmmmmmmmmmmmmmmmmmmmmmmm";
+            NSData *data =[str dataUsingEncoding:kCFStringEncodingUTF8];
+            NSString *filePath = [JKSandBoxManager createCacheFilePathWithFileName:@"mmm.txt" data:data];
             [[filePath shouldNot] beNil];
             [[theValue([JKSandBoxManager isExistsFile:filePath]) should] equal:theValue(YES)];
             
         });
         
+        
         it(@"deleteFile:", ^{
             
-            NSString *filePath = [JKSandBoxManager createCacheFilePathWith:@"jjj.txt"];
+            NSString *str = @"mmmmmmmmmmmmmmmmmmmmmmmmmmjjjjjjjjjjjjjjj";
+            NSData *data =[str dataUsingEncoding:kCFStringEncodingUTF8];
+            NSString *filePath = [JKSandBoxManager createCacheFilePathWithFileName:@"jjj.txt" data:data];
             [[filePath shouldNot] beNil];
-
+            [[theValue([JKSandBoxManager isExistsFile:filePath]) should] equal:theValue(YES)];
             [[theValue([JKSandBoxManager deleteFile:filePath]) should] equal:theValue(YES)];
             [[theValue([JKSandBoxManager isExistsFile:filePath]) shouldNot] equal:theValue(YES)];
             
         });
         
         it(@"moveFielFrom: to:", ^{
-            NSString *filePath = [JKSandBoxManager createCacheFilePathWith:@"name.txt"];
+            NSString *str = @"mmmmmmmmmmmmmmmmmmmmmmmmmmjjjjjjjjjjjjjjj";
+            NSData *data =[str dataUsingEncoding:kCFStringEncodingUTF8];
+
+            NSString *filePath = [JKSandBoxManager createCacheFilePathWithFileName:@"name.txt" data:data];
             [[filePath shouldNot] beNil];
-            NSString *nameSpacePath = [JKSandBoxManager createDocumentsFilePathWith:@"nameSpace"];
+            NSString *nameSpacePath = [JKSandBoxManager createDocumentsFilePathWithFolderName:@"nameSpace"];
             [[nameSpacePath shouldNot] beNil];
             NSString *targetFilePath = [NSString stringWithFormat:@"%@/name.txt",nameSpacePath];
             [[theValue([JKSandBoxManager moveFileFrom:filePath to:targetFilePath]) should] equal:theValue(YES)];
@@ -67,9 +77,11 @@ describe(@"JKSandBoxManager", ^{
         });
         
         it(@"copyFielFrom: to:", ^{
-            NSString *filePath = [JKSandBoxManager createCacheFilePathWith:@"jackName.txt"];
+            NSString *str = @"mmmmmmmmmmmmmmmmmmmmmmmmmmjjjjjjjjjjjjjjj";
+            NSData *data =[str dataUsingEncoding:kCFStringEncodingUTF8];
+            NSString *filePath = [JKSandBoxManager createCacheFilePathWithFileName:@"jackName.txt" data:data];
             [[filePath shouldNot] beNil];
-            NSString *nameSpacePath = [JKSandBoxManager createDocumentsFilePathWith:@"nameSpace1"];
+            NSString *nameSpacePath = [JKSandBoxManager createDocumentsFilePathWithFolderName:@"nameSpace1"];
             [[nameSpacePath shouldNot] beNil];
             NSString *targetFilePath = [NSString stringWithFormat:@"%@/jackName.txt",nameSpacePath];
             [[theValue([JKSandBoxManager copyFileFrom:filePath to:targetFilePath]) should] equal:theValue(YES)];
@@ -81,14 +93,16 @@ describe(@"JKSandBoxManager", ^{
         
         static NSString *folderePath =nil;
 beforeEach(^{
-    folderePath = [JKSandBoxManager createCacheFilePathWith:@"testfolder"];
+    
+    folderePath = [JKSandBoxManager createCacheFilePathWithFolderName:@"testfolder"];
     [[folderePath shouldNot] beNil];
-    
-    NSString *filePath = [JKSandBoxManager createCacheFilePathWith:@"testfolder" With:@"testFile.txt"];
+    NSString *str = @"mmmmmmmmmmmmmmmmmmmmmmmmmmjjjjjjjjjjjjjjj";
+    NSData *data =[str dataUsingEncoding:kCFStringEncodingUTF8];
+    NSString *filePath = [JKSandBoxManager createCacheFilePathWithNameSpace:@"testfolder" fileName:@"testFile.txt" data:data];
     [[filePath shouldNot] beNil];
-    
-    NSString *folderePath1 = [JKSandBoxManager createCacheFilePathWith:@"testfolder" With:@"folder"];
-    [[folderePath1 shouldNot] beNil];
+    NSString *folderPath1 = [NSString stringWithFormat:@"%@/folder",folderePath];
+    folderPath1 = [JKSandBoxManager createDirectoryWithPath:folderPath1];
+    [[folderPath1 shouldNot] beNil];
 });
         it(@"filesWithoutFolderAtPath", ^{
             NSArray *files = [JKSandBoxManager filesWithoutFolderAtPath:folderePath];
