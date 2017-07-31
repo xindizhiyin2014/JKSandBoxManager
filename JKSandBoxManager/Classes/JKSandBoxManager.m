@@ -179,7 +179,8 @@
     if (!folderName || [folderName isEqualToString:@""]) {
      return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathDocument,fileName];
     }
-return [NSString stringWithFormat:@"%@/%@/%@",JKSandBoxPathDocument,folderName,fileName];
+    
+    return [NSString stringWithFormat:@"%@/%@",[self createDocumentsFilePathWithFolderName:folderName],fileName];
 }
 
 + (nonnull NSString *)appendCacheFilePathWithFileName:(nullable NSString *)fileName{
@@ -192,7 +193,8 @@ return [NSString stringWithFormat:@"%@/%@/%@",JKSandBoxPathDocument,folderName,f
     if (!folderName || [folderName isEqualToString:@""]) {
         return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathCache,fileName];
     }
-    return [NSString stringWithFormat:@"%@/%@/%@",JKSandBoxPathCache,folderName,fileName];
+    
+    return [NSString stringWithFormat:@"%@/%@",[self createCacheFilePathWithFolderName:folderName],fileName];
 
 }
 
