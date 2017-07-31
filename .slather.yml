@@ -1,0 +1,5 @@
+workspace: Example/JKSandBoxManager.xcworkspace
+xcodeproj: Example/JKSandBoxManager.xcodeproj
+scheme: JKSandBoxManager-Example
+source_files: JKSandBoxManager/Classes/ViewModels/*.m
+output_directory: ./coverage_report

@@ -169,4 +169,36 @@
     return [[NSFileManager defaultManager] copyItemAtPath:originFilePath toPath:targetFilePath error:&error];
 }
 
++ (nonnull NSString *)appendDocumentsFilePathWithFileName:(nullable NSString *)fileName{
+
+    return [self appendDocumentsFilePathWithFolderName:nil FileName:fileName];
+}
+
++ (nonnull NSString *)appendDocumentsFilePathWithFolderName:(nullable NSString *)folderName FileName:(nullable NSString *)fileName;{
+    
+    if (!folderName || [folderName isEqualToString:@""]) {
+     return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathDocument,fileName];
+    }
+return [NSString stringWithFormat:@"%@/%@/%@",JKSandBoxPathDocument,folderName,fileName];
+}
+
++ (nonnull NSString *)appendCacheFilePathWithFileName:(nullable NSString *)fileName{
+    
+    return [self appendCacheFilePathWithFolderName:nil FileName:fileName];
+}
+
++ (nonnull NSString *)appendCacheFilePathWithFolderName:(nullable NSString *)folderName FileName:(nullable NSString *)fileName{
+   
+    if (!folderName || [folderName isEqualToString:@""]) {
+        return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathCache,fileName];
+    }
+    return [NSString stringWithFormat:@"%@/%@/%@",JKSandBoxPathCache,folderName,fileName];
+
+}
+
+
++ (nonnull NSString *)appendTemporaryFilePathWithFileName:(nullable NSString *)fileName{
+return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathTemp,fileName];
+}
+
 @end

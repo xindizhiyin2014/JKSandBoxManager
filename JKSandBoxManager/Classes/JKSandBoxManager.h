@@ -141,5 +141,48 @@
 + (BOOL)copyFileFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath;
 
 
+/**
+ 根据文件的名字拼接文件在沙盒documents的路径，实际不创建文件
+
+ @param fileName 文件的名字
+ @return 文件的沙盒路径
+ */
++ (nonnull NSString *)appendDocumentsFilePathWithFileName:(nullable NSString *)fileName;
+
+/**
+ 根据文件的名字拼接文件在沙盒documents的路径，实际不创建文件
+
+ @param folderName 子文件夹名字
+ @param fileName 文件的名字
+ @return 沙盒的路径
+ */
++ (nonnull NSString *)appendDocumentsFilePathWithFolderName:(nullable NSString *)folderName FileName:(nullable NSString *)fileName;
+
+/**
+ 根据文件的名字拼接文件在沙盒Cache的路径，实际不创建文件
+ 
+ @param fileName 文件的名字
+ @return 文件的沙盒路径
+ */
++ (nonnull NSString *)appendCacheFilePathWithFileName:(nullable NSString *)fileName;
+
+/**
+ 根据文件的名字拼接文件在沙盒Cache的路径，实际不创建文件
+ 
+ @param folderName 子文件夹名字
+ @param fileName 文件的名字
+ @return 沙盒的路径
+ */
++ (nonnull NSString *)appendCacheFilePathWithFolderName:(nullable NSString *)folderName FileName:(nullable NSString *)fileName;
+
+/**
+ 根据文件的名字拼接文件在沙盒Temporary的路径，实际不创建文件
+ 
+ @param fileName 文件的名字
+ @return 文件的沙盒路径
+ */
++ (nonnull NSString *)appendTemporaryFilePathWithFileName:(nullable NSString *)fileName;
+
+
 
 @end
