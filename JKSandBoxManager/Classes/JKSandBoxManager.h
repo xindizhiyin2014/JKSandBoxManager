@@ -183,6 +183,49 @@
  */
 + (nonnull NSString *)appendTemporaryFilePathWithFileName:(nullable NSString *)fileName;
 
-
+/**
+ 获取某个Bundle下的文件的路径
+ 
+ @param fileName 文件的名字，可以带后缀名
+ @param podName pod组件的名字
+ @param ext 文件的后缀名
+ @return 文件的路径
+ */
++ (nullable NSString *)pathWithFileName:(nonnull NSString *)fileName podName:(nonnull NSString *)podName ofType:(nullable NSString *)ext;
+    
+/**
+ 获取某个podName对象的bundle对象
+ 
+ @param podName pod的名字
+ @return 对应的bundle对象
+ */
++ (nullable NSBundle *)bundleWithPodName:(nonnull NSString *)podName;
+    
+/**
+ 获取某个podName下的nib文件并创建对象
+ 
+ @param nibName xib文件的名字
+ @param podName pod库名
+ @return 创建好的对象
+ */
++ (nullable id)loadNibName:(nonnull NSString *)nibName podName:(nonnull NSString *)podName;
+    
+/**
+ 获取某个pod下的UIStoryboard文件的对象
+ 
+ @param name UIStoryboard 的名字
+ @param podName pod库名
+ @return UIStoryboard 对象
+ */
++ (nullable UIStoryboard *)storyboardWithName:(nonnull NSString *)name podName:(nonnull NSString *)podName;
+    
+/**
+ 在模块内查找UIImage的方法
+ 
+ @param imageName 图片的名字，如果是非png格式的话，要带上后缀名
+ @param podName pod库名
+ @return UIImage对象
+ */
++ (nullable UIImage *)imageWithName:(nonnull NSString *)imageName podName:(nonnull NSString *)podName;
 
 @end

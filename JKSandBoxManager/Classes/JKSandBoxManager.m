@@ -202,5 +202,66 @@
 + (nonnull NSString *)appendTemporaryFilePathWithFileName:(nullable NSString *)fileName{
 return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathTemp,fileName];
 }
+    
+    + (nullable NSString *)pathWithFileName:(nonnull NSString *)fileName podName:(nonnull NSString *)podName ofType:(nullable NSString *)ext{
+        
+        if (!fileName ) {
+            return nil;
+        }
+        
+        NSBundle * pod_bundle =[self bundleWithPodName:podName];
+        if (!pod_bundle.loaded) {
+            [pod_bundle load];
+        }
+        NSString *filePath =[pod_bundle pathForResource:fileName ofType:ext];
+        return filePath;
+    }
+    
+    
++ (nullable NSBundle *)bundleWithPodName:(nonnull NSString *)podName{
+    
+    if (!podName) {
+        return nil;
+    }
+    
+    NSBundle * bundle = [NSBundle bundleForClass:NSClassFromString(podName)];
+    NSURL * url = [bundle URLForResource:podName withExtension:@"bundle"];
+    NSArray *frameWorks = [NSBundle allFrameworks];
+    if (!url) {
+        for (NSBundle *tempBundle in frameWorks) {
+            url = [tempBundle URLForResource:podName withExtension:@"bundle"];
+            if (url) {
+                break;
+            }
+        }
+    }
+    NSBundle * pod_bundle =[NSBundle bundleWithURL:url];
+    if (!pod_bundle.loaded) {
+        [pod_bundle load];
+    }
+    
+    return pod_bundle;
+}
+    
++ (nullable id)loadNibName:(nonnull NSString *)nibName podName:(nonnull NSString *)podName{
+    NSBundle *bundle =[self  bundleWithPodName:podName];
+    id object = [[bundle loadNibNamed:nibName owner:nil options:nil] lastObject];
+    return object;
+}
+    
++ (nullable UIStoryboard *)storyboardWithName:(nonnull NSString *)name podName:(nonnull NSString *)podName{
+    NSBundle *bundle =[self  bundleWithPodName:podName];
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:name bundle:bundle];
+    return storyBoard;
+}
+    
++ (nullable UIImage *)imageWithName:(nonnull NSString *)imageName podName:(nonnull NSString *)podName {
+    NSBundle * pod_bundle =[self bundleWithPodName:podName];
+    if (!pod_bundle.loaded) {
+        [pod_bundle load];
+    }
+    UIImage *image = [UIImage imageNamed:imageName inBundle:pod_bundle compatibleWithTraitCollection:nil];
+    return image;
+}
 
 @end
