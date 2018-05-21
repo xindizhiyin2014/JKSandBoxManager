@@ -38,6 +38,18 @@
     
 }
 
++ (nonnull NSArray *)filesWithoutFolderAtPath:(nonnull NSString *)filePath extensions:(nullable NSArray <NSString *>*)exts{
+    NSArray *array = [self filesWithoutFolderAtPath:filePath];
+    NSMutableArray *files = [NSMutableArray new];
+    for (NSString *fileName in array) {
+        NSString *ext = [self getPathExtensionWith:filePath];
+        if ([exts containsObject:ext]) {
+            [files addObject:fileName];
+        }
+    }
+    return [files copy];
+}
+
 
 + (nonnull NSArray *)filesWithFolderAtPath:(nonnull NSString *)filePath{
 

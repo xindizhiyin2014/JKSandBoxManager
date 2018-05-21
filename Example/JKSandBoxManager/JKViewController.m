@@ -7,7 +7,7 @@
 //
 
 #import "JKViewController.h"
-
+#import <JKSandBoxManager/JKSandBoxManager.h>
 @interface JKViewController ()
 
 @end
@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSString *ext = [JKSandBoxManager getPathExtensionWith:@"124.txt"];
+    NSLog(@"ext %@",ext);
 }
 
 - (void)didReceiveMemoryWarning

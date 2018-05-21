@@ -29,15 +29,24 @@
  */
 + (nullable NSString *)getPathExtensionWith:(nullable NSString *)filePath;
 
+
 /**
  获取某一路径下的文件列表，不包含文件夹
 
  @param filePath 文件的路径
- @return 文件列表
+ @return 文件名列表
  */
 + (nonnull NSArray *)filesWithoutFolderAtPath:(nonnull NSString *)filePath;
 
 
+/**
+ 获取某一路径下的复合一定要求后缀名的文件列表，不包含文件夹，
+
+ @param filePath 文件的路径
+ @param exts 符合要求的后缀名列表
+ @return 文件名列表
+ */
++ (nonnull NSArray *)filesWithoutFolderAtPath:(nonnull NSString *)filePath extensions:(nullable NSArray <NSString *>*)exts;
 /**
  获取某一路径下的文件列表，包含文件夹
 
@@ -45,6 +54,7 @@
  @return 文件列表
  */
 + (nonnull NSArray *)filesWithFolderAtPath:(nonnull NSString *)filePath;
+
 /**
  判断某个路径下的文件是否存在
 
