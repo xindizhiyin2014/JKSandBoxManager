@@ -20,6 +20,21 @@ describe(@"JKSandBoxManager", ^{
            [[[JKSandBoxManager getPathExtensionWith:filePath] should] equal:@"png"];
        });
         
+        it(@"getFileNameWithFilePath", ^{
+            NSString *filePath = @"123.png";
+            [[[JKSandBoxManager getFileNameWithFilePath:filePath] should] equal:filePath];
+            
+            NSString *filePath1 = @"temp/123.png";
+            [[[JKSandBoxManager getFileNameWithFilePath:filePath1] should] equal:@"123.png"];
+        });
+        
+        it(@"getFileNameWithNoExtWithfilePath", ^{
+            NSString *filePath = @"123.png";
+            [[[JKSandBoxManager getFileNameWithNoExtWithFilePath:filePath] should] equal:@"123"];
+        });
+        
+        
+        
         
         it(@"isExistsFile", ^{
             [[theValue([JKSandBoxManager isExistsFile:@"123.png"]) shouldNot] equal:theValue(YES)];
@@ -113,6 +128,11 @@ beforeEach(^{
         it(@"filesWithFolderAtPath", ^{
             NSArray *files = [JKSandBoxManager filesWithFolderAtPath:folderePath];
             [[theValue(files.count) should] equal:theValue(2)];
+        });
+        
+        it(@"foldersWithFilePath", ^{
+            NSArray *folders = [JKSandBoxManager foldersAtPath:folderePath];
+            [[theValue(folders.count) should] equal:theValue(1)];
         });
         
 

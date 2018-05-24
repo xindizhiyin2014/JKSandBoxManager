@@ -10,35 +10,47 @@
 
 @implementation JKSandBoxManager
 
-+ (nullable NSString *)getPathExtensionWith:(NSString *)filePath
++ (NSString *)getPathExtensionWith:(NSString *)filePath
 {
-    NSString *pathExtension=nil;
-    NSRange range = [filePath rangeOfString:@"[^\\.]+$" options:NSRegularExpressionSearch];
-    if (range.location != NSNotFound) {
-        
-        pathExtension = [filePath substringWithRange:range];
-    }
-    
-    return pathExtension;
+//    NSString *pathExtension=nil;
+//    NSRange range = [filePath rangeOfString:@"[^\\.]+$" options:NSRegularExpressionSearch];
+//    if (range.location != NSNotFound) {
+//
+//        pathExtension = [filePath substringWithRange:range];
+//    }
+    NSString *ext = [filePath pathExtension];
+    return ext;
 }
 
-+ (nonnull NSArray *)filesWithoutFolderAtPath:(nonnull NSString *)filePath{
++ (NSString *)getFileNameWithFilePath:(NSString *)filePath{
+    NSString *fileName = [filePath lastPathComponent];
+    return fileName;
+}
+
++ (NSString *)getFileNameWithNoExtWithFilePath:(NSString *)filePath{
+    NSString *fileName = [filePath stringByDeletingPathExtension];
+    return fileName;
+}
+
++ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath{
     
     NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];
     //新建数组，存放各个文件路径
     NSMutableArray *files = [NSMutableArray new];
     //遍历目录迭代器，获取各个文件路径
-    NSString *filename=nil;
-    while (filename = [dirEnum nextObject]) {
-        if (![[filename pathExtension] isEqualToString:@""]) {//存在后缀名的文件
-            [files addObject:filename];
+    NSString *fileName=nil;
+    while (fileName = [dirEnum nextObject]) {
+        NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@",filePath,fileName];
+        BOOL isDirectory = [self isDirectory:tempFilePath];
+        if (!isDirectory) {
+            [files addObject:fileName];
         }
     }
     return [files copy];
     
 }
 
-+ (nonnull NSArray *)filesWithoutFolderAtPath:(nonnull NSString *)filePath extensions:(nullable NSArray <NSString *>*)exts{
++ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath extensions:(NSArray <NSString *>*)exts{
     NSArray *array = [self filesWithoutFolderAtPath:filePath];
     NSMutableArray *files = [NSMutableArray new];
     for (NSString *fileName in array) {
@@ -51,18 +63,34 @@
 }
 
 
-+ (nonnull NSArray *)filesWithFolderAtPath:(nonnull NSString *)filePath{
++ (NSArray *)filesWithFolderAtPath:(NSString *)filePath{
     
     NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];
     //新建数组，存放各个文件路径
     NSMutableArray *files = [NSMutableArray new];
     //遍历目录迭代器，获取各个文件路径
-    NSString *filename=nil;
-    while (filename = [dirEnum nextObject]) {
-        if (![filename isEqualToString:@".DS_Store"]) {//存在后缀名的文件
-            [files addObject:filename];
+    NSString *fileName=nil;
+    while (fileName = [dirEnum nextObject]) {
+        if (![fileName isEqualToString:@".DS_Store"]) {//存在后缀名的文件
+            [files addObject:fileName];
         }
         
+    }
+    return [files copy];
+}
+
++ (NSArray *)foldersAtPath:(NSString *)filePath{
+    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];
+    //新建数组，存放各个文件路径
+    NSMutableArray *files = [NSMutableArray new];
+    //遍历目录迭代器，获取各个文件路径
+    NSString *fileName=nil;
+    while (fileName = [dirEnum nextObject]) {
+        NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@",filePath,fileName];
+        BOOL isDirectory = [self isDirectory:tempFilePath];
+        if (isDirectory) {
+            [files addObject:fileName];
+        }
     }
     return [files copy];
 }
@@ -73,13 +101,19 @@
     
 }
 
++ (BOOL)isDirectory:(NSString *)filePath{
+    BOOL isDirectory = NO;
+    [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDirectory];
+    return isDirectory;
+}
 
-+ (nullable NSString *)createDocumentsFilePathWithFileName:(nullable NSString *)fileName data:(nullable NSData *)data{
+
++ (NSString *)createDocumentsFilePathWithFileName:(NSString *)fileName data:(NSData *)data{
     
     return [self createDocumentsFilePathWithNameSpace:nil fileName:fileName data:data];
 }
 
-+ (nullable NSString *)createDocumentsFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data{
++ (NSString *)createDocumentsFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data{
     
     if (!data) {
         return nil;
@@ -92,12 +126,12 @@
 }
 
 
-+ (nullable NSString *)createCacheFilePathWithFileName:(NSString *)fileName data:(NSData *)data{
++ (NSString *)createCacheFilePathWithFileName:(NSString *)fileName data:(NSData *)data{
     
     return [self createCacheFilePathWithNameSpace:nil fileName:fileName data:data];
 }
 
-+ (nullable NSString *)createCacheFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data{
++ (NSString *)createCacheFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data{
     if (!data) {
         return nil;
     }
@@ -108,7 +142,7 @@
     return filePath;
 }
 
-+ (nullable NSString *)createCacheFilePathWithFolderName:(nullable NSString *)folderName{
++ (NSString *)createCacheFilePathWithFolderName:(NSString *)folderName{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cacheDir = [paths objectAtIndex:0];
     NSString *folderPath=folderName?[cacheDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",folderName]]:cacheDir;
@@ -122,7 +156,7 @@
 }
 
 
-+ (nullable NSString *)createDocumentsFilePathWithFolderName:(nullable NSString *)folderName{
++ (NSString *)createDocumentsFilePathWithFolderName:(NSString *)folderName{
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
@@ -135,7 +169,7 @@
     return folderPath;
 }
 
-+ (nonnull NSString *)createDirectoryWithPath:(nonnull NSString *)filePath{
++ (NSString *)createDirectoryWithPath:(NSString *)filePath{
     if ([self isExistsFile:filePath]) {
         return filePath;
     }
@@ -145,7 +179,7 @@
     return filePath;
 }
 
-+ (BOOL)deleteFile:(nonnull NSString *)filePath{
++ (BOOL)deleteFile:(NSString *)filePath{
     NSError *error =nil;
     if (!filePath) {
         return NO;
@@ -155,7 +189,7 @@
     
 }
 
-+ (BOOL)moveFileFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath{
++ (BOOL)moveFileFrom:(NSString *)originFilePath to:(NSString *)targetFilePath{
     NSError *error = nil;
     if (!(originFilePath&&targetFilePath)) {
         return NO;
@@ -169,7 +203,7 @@
 }
 
 
-+ (BOOL)copyFileFrom:(nonnull NSString *)originFilePath to:(nonnull NSString *)targetFilePath{
++ (BOOL)copyFileFrom:(NSString *)originFilePath to:(NSString *)targetFilePath{
     NSError *error = nil;
     if (!(originFilePath&&targetFilePath)) {
         return NO;
@@ -181,12 +215,12 @@
     return [[NSFileManager defaultManager] copyItemAtPath:originFilePath toPath:targetFilePath error:&error];
 }
 
-+ (nonnull NSString *)appendDocumentsFilePathWithFileName:(nullable NSString *)fileName{
++ (NSString *)appendDocumentsFilePathWithFileName:(NSString *)fileName{
     
     return [self appendDocumentsFilePathWithFolderName:nil FileName:fileName];
 }
 
-+ (nonnull NSString *)appendDocumentsFilePathWithFolderName:(nullable NSString *)folderName FileName:(nullable NSString *)fileName;{
++ (NSString *)appendDocumentsFilePathWithFolderName:(NSString *)folderName FileName:(NSString *)fileName;{
     
     if (!folderName || [folderName isEqualToString:@""]) {
         return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathDocument,fileName];
@@ -195,12 +229,12 @@
     return [NSString stringWithFormat:@"%@/%@",[self createDocumentsFilePathWithFolderName:folderName],fileName];
 }
 
-+ (nonnull NSString *)appendCacheFilePathWithFileName:(nullable NSString *)fileName{
++ (NSString *)appendCacheFilePathWithFileName:(NSString *)fileName{
     
     return [self appendCacheFilePathWithFolderName:nil FileName:fileName];
 }
 
-+ (nonnull NSString *)appendCacheFilePathWithFolderName:(nullable NSString *)folderName FileName:(nullable NSString *)fileName{
++ (NSString *)appendCacheFilePathWithFolderName:(NSString *)folderName FileName:(NSString *)fileName{
     
     if (!folderName || [folderName isEqualToString:@""]) {
         return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathCache,fileName];
@@ -211,11 +245,11 @@
 }
 
 
-+ (nonnull NSString *)appendTemporaryFilePathWithFileName:(nullable NSString *)fileName{
++ (NSString *)appendTemporaryFilePathWithFileName:(NSString *)fileName{
     return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathTemp,fileName];
 }
 
-+ (nullable NSString *)pathWithFileName:(nonnull NSString *)fileName podName:(nonnull NSString *)podName ofType:(nullable NSString *)ext{
++ (NSString *)pathWithFileName:(NSString *)fileName podName:(NSString *)podName ofType:(NSString *)ext{
     
     if (!fileName ) {
         return nil;
@@ -230,7 +264,7 @@
 }
 
 
-+ (nullable NSBundle *)bundleWithPodName:(nonnull NSString *)podName{
++ (NSBundle *)bundleWithPodName:(NSString *)podName{
     
     if (!podName) {
         return nil;
@@ -255,19 +289,19 @@
     return pod_bundle;
 }
 
-+ (nullable id)loadNibName:(nonnull NSString *)nibName podName:(nonnull NSString *)podName{
++ (id)loadNibName:(NSString *)nibName podName:(NSString *)podName{
     NSBundle *bundle =[self  bundleWithPodName:podName];
     id object = [[bundle loadNibNamed:nibName owner:nil options:nil] lastObject];
     return object;
 }
 
-+ (nullable UIStoryboard *)storyboardWithName:(nonnull NSString *)name podName:(nonnull NSString *)podName{
++ (UIStoryboard *)storyboardWithName:(NSString *)name podName:(NSString *)podName{
     NSBundle *bundle =[self  bundleWithPodName:podName];
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:name bundle:bundle];
     return storyBoard;
 }
 
-+ (nullable UIImage *)imageWithName:(nonnull NSString *)imageName podName:(nonnull NSString *)podName {
++ (UIImage *)imageWithName:(NSString *)imageName podName:(NSString *)podName {
     NSBundle * pod_bundle =[self bundleWithPodName:podName];
     if (!pod_bundle.loaded) {
         [pod_bundle load];
