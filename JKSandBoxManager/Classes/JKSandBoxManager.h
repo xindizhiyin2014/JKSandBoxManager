@@ -55,7 +55,7 @@
 + (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath;
 
 /**
- 获取某一路径下的复合一定要求后缀名的文件列表，不包含文件夹，
+ 获取某一路径下的符合一定要求后缀名的文件列表，不包含文件夹，
  
  @param filePath 文件的路径
  @param exts 符合要求的后缀名列表

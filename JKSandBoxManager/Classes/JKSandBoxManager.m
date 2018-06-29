@@ -42,7 +42,7 @@
     while (fileName = [dirEnum nextObject]) {
         NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@",filePath,fileName];
         BOOL isDirectory = [self isDirectory:tempFilePath];
-        if (!isDirectory) {
+        if (!isDirectory && ![fileName containsString:@"/"]) {
             [files addObject:fileName];
         }
     }
