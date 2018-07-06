@@ -256,6 +256,9 @@
     }
     
     NSBundle * pod_bundle =[self bundleWithPodName:podName];
+    if (!pod_bundle) {
+        return nil;
+    }
     if (!pod_bundle.loaded) {
         [pod_bundle load];
     }
@@ -281,6 +284,9 @@
             }
         }
     }
+    if (!url) {
+        return nil;
+    }
     NSBundle * pod_bundle =[NSBundle bundleWithURL:url];
     if (!pod_bundle.loaded) {
         [pod_bundle load];
@@ -291,18 +297,27 @@
 
 + (id)loadNibName:(NSString *)nibName podName:(NSString *)podName{
     NSBundle *bundle =[self  bundleWithPodName:podName];
+    if (!bundle) {
+        return nil;
+    }
     id object = [[bundle loadNibNamed:nibName owner:nil options:nil] lastObject];
     return object;
 }
 
 + (UIStoryboard *)storyboardWithName:(NSString *)name podName:(NSString *)podName{
     NSBundle *bundle =[self  bundleWithPodName:podName];
+    if (!bundle) {
+        return nil;
+    }
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:name bundle:bundle];
     return storyBoard;
 }
 
 + (UIImage *)imageWithName:(NSString *)imageName podName:(NSString *)podName {
     NSBundle * pod_bundle =[self bundleWithPodName:podName];
+    if (!pod_bundle) {
+        return nil;
+    }
     if (!pod_bundle.loaded) {
         [pod_bundle load];
     }
