@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0410D00C1F0F53EE001A708E /* JKSandBoxManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0410D00B1F0F53EE001A708E /* JKSandBoxManagerSpec.m */; };
-		0485CB821F0F90EB003FC1EE /* abcd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0485CB811F0F90EB003FC1EE /* abcd.png */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -26,6 +25,8 @@
 		793022129194CA5974355A75 /* Pods_JKSandBoxManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA2FCEE8593E464D94C0117 /* Pods_JKSandBoxManager_Example.framework */; };
 		7AC27582C1A0FEF9669F8199 /* Pods_JKSandBoxManager_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944B02EA30A179989A1F088E /* Pods_JKSandBoxManager_Tests.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		BDDB26BA2166F0F300A0E7BD /* abcd.png in Resources */ = {isa = PBXBuildFile; fileRef = BDDB26B92166F0F300A0E7BD /* abcd.png */; };
+		BDDB26BB2166F0F300A0E7BD /* abcd.png in Resources */ = {isa = PBXBuildFile; fileRef = BDDB26B92166F0F300A0E7BD /* abcd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		0410D00B1F0F53EE001A708E /* JKSandBoxManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKSandBoxManagerSpec.m; sourceTree = "<group>"; };
-		0485CB811F0F90EB003FC1EE /* abcd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abcd.png; sourceTree = "<group>"; };
 		1FA2FCEE8593E464D94C0117 /* Pods_JKSandBoxManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSandBoxManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3640ED768C2D1F1A62FAEE3C /* Pods-JKSandBoxManager_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSandBoxManager_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4D4E8DB7F725401350A7A617 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -70,6 +70,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		944B02EA30A179989A1F088E /* Pods_JKSandBoxManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSandBoxManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDDB26B92166F0F300A0E7BD /* abcd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abcd.png; sourceTree = "<group>"; };
 		E53059E1B090A4AF670CCC54 /* Pods-JKSandBoxManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSandBoxManager_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,7 +157,7 @@
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
 				6003F59B195388D20070C39A /* JKSandBoxManager-Prefix.pch */,
-				0485CB811F0F90EB003FC1EE /* abcd.png */,
+				BDDB26B92166F0F300A0E7BD /* abcd.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -284,7 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
-				0485CB821F0F90EB003FC1EE /* abcd.png in Resources */,
+				BDDB26BA2166F0F300A0E7BD /* abcd.png in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -296,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
+				BDDB26BB2166F0F300A0E7BD /* abcd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

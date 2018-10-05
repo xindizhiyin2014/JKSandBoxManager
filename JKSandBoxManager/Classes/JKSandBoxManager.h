@@ -137,6 +137,17 @@
  */
 + (NSString *)createCacheFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data;
 
+
+/**
+ 在指定的文件夹路径下创建文件
+
+ @param folerPath 文件夹路径
+ @param fileName 文件的名字
+ @param data 二进制数据
+ @return 创建成功的文件沙盒路径
+ */
++ (NSString *)createFileAtFolderPath:(NSString *)folerPath fileName:(NSString *)fileName data:(NSData *)data;
+
 /**
  在cache文件夹下创建文件夹
  

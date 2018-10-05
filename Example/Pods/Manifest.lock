@@ -1,5 +1,5 @@
 PODS:
-  - JKSandBoxManager (0.1.5.5)
+  - JKSandBoxManager (0.1.5.6)
   - Kiwi (2.4.0)
 
 DEPENDENCIES:
@@ -7,7 +7,7 @@ DEPENDENCIES:
   - Kiwi
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Kiwi
 
 EXTERNAL SOURCES:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JKSandBoxManager: a64ba5b5b97d334519d16cf54ca032e30f29eaed
+  JKSandBoxManager: 48e53d85e974dcb165eb5469c83f50b0ec3d1676
   Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
 
 PODFILE CHECKSUM: 91cd98d001b6cd433eb7afde937e8da4a7e76f74
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

@@ -61,6 +61,14 @@ describe(@"JKSandBoxManager", ^{
             [[theValue([JKSandBoxManager isExistsFile:filePath]) should] equal:theValue(YES)];
             
         });
+        it(@"createFileAtFolderPath:", ^{
+            NSString *folerPath = [NSString stringWithFormat:@"%@/%@",JKSandBoxPathDocument,@"img"];
+            UIImage *image = [UIImage imageNamed:@"abcd"];
+            NSData *imageData = UIImagePNGRepresentation(image);
+          NSString *targetFilePath =  [JKSandBoxManager createFileAtFolderPath:folerPath fileName:@"aaa.png" data:imageData];
+            [[targetFilePath shouldNot] beNil];
+            [[theValue([JKSandBoxManager isExistsFile:targetFilePath]) should] equal:theValue(YES)];
+        });
         
         
         it(@"deleteFile:", ^{

@@ -142,6 +142,21 @@
     return filePath;
 }
 
++ (NSString *)createFileAtFolderPath:(NSString *)folerPath fileName:(NSString *)fileName data:(NSData *)data{
+    if (!data) {
+        return nil;
+    }
+    
+    if(![JKSandBoxManager isDirectory:folerPath]){
+        [JKSandBoxManager createDirectoryWithPath:folerPath];
+    }
+    NSString *filePath =[NSString stringWithFormat:@"%@/%@",folerPath,fileName];
+    if([data writeToFile:filePath atomically:YES]){
+        return filePath;
+    }
+    return nil;
+}
+
 + (NSString *)createCacheFilePathWithFolderName:(NSString *)folderName{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cacheDir = [paths objectAtIndex:0];
