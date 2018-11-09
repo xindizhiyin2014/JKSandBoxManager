@@ -21,7 +21,6 @@
 
 @interface JKSandBoxManager : NSObject
 
-
 /**
  获取文件的后缀名
  
@@ -280,6 +279,23 @@
  @return UIImage对象
  */
 + (UIImage *)imageWithName:(NSString *)imageName podName:(NSString *)podName;
+
+/**
+ 对文件进行md5哈希操作 默认取文件的size为 1024 *8
+
+ @param filePath 文件的沙盒路径
+ @return 哈希字符串
+ */
++ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath;
+
+/**
+ 对文件进行md5哈希操作 默认取文件的size为 1024 *8
+ 
+ @param filePath 文件的沙盒路径
+ @param chunkSizeForReadingData 进行哈希的指定的片段文件的大小
+ @return 哈希字符串
+ */
++ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath WithSize:(size_t)chunkSizeForReadingData;
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "JKSandBoxManager.h"
+#import <CommonCrypto/CommonDigest.h>   //算法 md5
 
 @implementation JKSandBoxManager
 
@@ -338,6 +339,83 @@
     }
     UIImage *image = [UIImage imageNamed:imageName inBundle:pod_bundle compatibleWithTraitCollection:nil];
     return image;
+}
+
++ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath{
+   return [self fileMD5HashStringWithPath:filePath WithSize:1024 *8];
+}
+
++ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath WithSize:(size_t)chunkSizeForReadingData{
+    
+    NSMutableString *result=nil;
+    CFReadStreamRef readStream = NULL;
+    
+    // Get the file URL
+    CFURLRef fileURL =
+    CFURLCreateWithFileSystemPath(kCFAllocatorDefault,
+                                  (CFStringRef)filePath,
+                                  kCFURLPOSIXPathStyle,
+                                  (Boolean)false);
+    
+    CC_MD5_CTX hashObject;
+    bool hasMoreData = true;
+    bool didSucceed;
+    
+    if (!fileURL) goto done;
+    
+    // Create and open the read stream
+    readStream = CFReadStreamCreateWithFile(kCFAllocatorDefault,
+                                            (CFURLRef)fileURL);
+    if (!readStream) goto done;
+    didSucceed = (bool)CFReadStreamOpen(readStream);
+    if (!didSucceed) goto done;
+    
+    // Initialize the hash object
+    CC_MD5_Init(&hashObject);
+    
+    // Make sure chunkSizeForReadingData is valid
+    if (!chunkSizeForReadingData) {
+        chunkSizeForReadingData = 1024*8;
+    }
+    
+    // Feed the data to the hash object
+    while (hasMoreData) {
+        uint8_t buffer[chunkSizeForReadingData];
+        CFIndex readBytesCount = CFReadStreamRead(readStream,
+                                                  (UInt8 *)buffer,
+                                                  (CFIndex)sizeof(buffer));
+        if (readBytesCount == -1)break;
+        if (readBytesCount == 0) {
+            hasMoreData =false;
+            continue;
+        }
+        CC_MD5_Update(&hashObject,(const void *)buffer,(CC_LONG)readBytesCount);
+    }
+    
+    // Check if the read operation succeeded
+    didSucceed = !hasMoreData;
+    
+    // Compute the hash digest
+    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+    CC_MD5_Final(digest, &hashObject);
+    
+    // Abort if the read operation failed
+    if (!didSucceed) goto done;
+    result = [NSMutableString string];
+    for(int i=0;i<CC_MD5_DIGEST_LENGTH;i++){
+        [result appendFormat:@"%02x",digest[i]];
+    }
+    
+done:
+    
+    if (readStream) {
+        CFReadStreamClose(readStream);
+        CFRelease(readStream);
+    }
+    if (fileURL) {
+        CFRelease(fileURL);
+    }
+    return result;
 }
 
 @end
