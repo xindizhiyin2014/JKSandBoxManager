@@ -33,6 +33,11 @@
     return fileName;
 }
 
++ (NSString *)getDirectoryWithFilePath:(NSString *)filePath{
+    NSString *directory = [filePath stringByDeletingLastPathComponent];
+    return directory;
+}
+
 + (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath{
     
     NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];

@@ -46,6 +46,14 @@
 + (NSString *)getFileNameWithNoExtWithFilePath:(NSString *)filePath;
 
 /**
+ 获取文件所在文件夹的沙盒路径
+
+ @param filePath 文件的沙盒路径
+ @return 文件夹的沙盒路径
+ */
++ (NSString *)getDirectoryWithFilePath:(NSString *)filePath;
+
+/**
  获取某一路径下的文件列表，不包含文件夹
  
  @param filePath 文件的路径
@@ -94,7 +102,6 @@
  */
 + (BOOL)isDirectory:(NSString *)filePath;
 
-
 /**
  在沙盒documents文件夹中创建文件的路径
  
@@ -103,7 +110,6 @@
  @return 文件的沙盒路径
  */
 + (NSString *)createDocumentsFilePathWithFileName:(NSString *)fileName data:(NSData *)data;
-
 
 /**
  在沙盒documents文件夹中指定的文件夹下创建文件的路径
@@ -115,7 +121,6 @@
  */
 + (NSString *)createDocumentsFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data;
 
-
 /**
  在cache文件夹下创建文件的路径
  
@@ -124,7 +129,6 @@
  @return 文件的沙盒路径
  */
 + (NSString *)createCacheFilePathWithFileName:(NSString *)fileName data:(NSData *)data;
-
 
 /**
  在cache文件夹下指定的文件夹下创建文件的路径
@@ -135,7 +139,6 @@
  @return 文件的沙盒路径
  */
 + (NSString *)createCacheFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data;
-
 
 /**
  在指定的文件夹路径下创建文件
@@ -175,7 +178,6 @@
  */
 + (BOOL)deleteFile:(NSString *)filePath;
 
-
 /**
  将某个文件或者文件夹移动到指定的路径下
  
@@ -191,7 +193,6 @@
  @param targetFilePath 指定的路径
  */
 + (BOOL)copyFileFrom:(NSString *)originFilePath to:(NSString *)targetFilePath;
-
 
 /**
  根据文件的名字拼接文件在沙盒documents的路径，实际不创建文件

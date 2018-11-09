@@ -18,8 +18,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    NSString *ext = [JKSandBoxManager getPathExtensionWith:@"124.txt"];
-    NSLog(@"ext %@",ext);
+//    NSString *ext = [JKSandBoxManager getPathExtensionWith:@"124.txt"];
+//    NSLog(@"ext %@",ext);
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"abcd.png" ofType:nil];
+    NSString *directory = [JKSandBoxManager getDirectoryWithFilePath:filePath];
+    NSLog(@"directory %@",directory);
 }
 
 - (void)didReceiveMemoryWarning
