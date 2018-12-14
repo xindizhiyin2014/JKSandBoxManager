@@ -275,7 +275,6 @@
     if (!fileName ) {
         return nil;
     }
-    
     NSBundle * pod_bundle =[self bundleWithPodName:podName];
     if (!pod_bundle) {
         return nil;
@@ -291,7 +290,7 @@
 + (NSBundle *)bundleWithPodName:(NSString *)podName{
     
     if (!podName) {
-        return nil;
+        return [NSBundle mainBundle];
     }
     
     NSBundle * bundle = [NSBundle bundleForClass:NSClassFromString(podName)];
@@ -317,7 +316,7 @@
 }
 
 + (id)loadNibName:(NSString *)nibName podName:(NSString *)podName{
-    NSBundle *bundle =[self  bundleWithPodName:podName];
+    NSBundle *bundle =[self bundleWithPodName:podName];
     if (!bundle) {
         return nil;
     }
@@ -326,7 +325,7 @@
 }
 
 + (UIStoryboard *)storyboardWithName:(NSString *)name podName:(NSString *)podName{
-    NSBundle *bundle =[self  bundleWithPodName:podName];
+    NSBundle *bundle =[self bundleWithPodName:podName];
     if (!bundle) {
         return nil;
     }

@@ -240,7 +240,7 @@
  获取某个Bundle下的文件的路径
  
  @param fileName 文件的名字，可以带后缀名
- @param podName pod组件的名字
+ @param podName pod组件的名字 podName为nil的话，默认为MainBundle
  @param ext 文件的后缀名
  @return 文件的路径
  */
@@ -249,7 +249,7 @@
 /**
  获取某个podName对象的bundle对象
  
- @param podName pod的名字
+ @param podName pod的名字 podName为nil的话，默认为MainBundle
  @return 对应的bundle对象
  */
 + (NSBundle *)bundleWithPodName:(NSString *)podName;
@@ -258,7 +258,7 @@
  获取某个podName下的nib文件并创建对象
  
  @param nibName xib文件的名字
- @param podName pod库名
+ @param podName pod库名 podName为nil的话，默认为MainBundle
  @return 创建好的对象
  */
 + (id)loadNibName:(NSString *)nibName podName:(NSString *)podName;
@@ -267,7 +267,7 @@
  获取某个pod下的UIStoryboard文件的对象
  
  @param name UIStoryboard 的名字
- @param podName pod库名
+ @param podName pod库名  podName为nil的话，默认为MainBundle
  @return UIStoryboard 对象
  */
 + (UIStoryboard *)storyboardWithName:(NSString *)name podName:(NSString *)podName;
@@ -276,7 +276,7 @@
  在模块内查找UIImage的方法
  
  @param imageName 图片的名字，如果是非png格式的话，要带上后缀名
- @param podName pod库名
+ @param podName pod库名 podName为nil的话，默认为MainBundle
  @return UIImage对象
  */
 + (UIImage *)imageWithName:(NSString *)imageName podName:(NSString *)podName;
