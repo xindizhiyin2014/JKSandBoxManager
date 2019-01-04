@@ -25,6 +25,7 @@
 		793022129194CA5974355A75 /* Pods_JKSandBoxManager_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FA2FCEE8593E464D94C0117 /* Pods_JKSandBoxManager_Example.framework */; };
 		7AC27582C1A0FEF9669F8199 /* Pods_JKSandBoxManager_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944B02EA30A179989A1F088E /* Pods_JKSandBoxManager_Tests.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		BDCA66FE21DF5A0D002E6C34 /* 456.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BDCA66FD21DF5A0D002E6C34 /* 456.bundle */; };
 		BDDB26BA2166F0F300A0E7BD /* abcd.png in Resources */ = {isa = PBXBuildFile; fileRef = BDDB26B92166F0F300A0E7BD /* abcd.png */; };
 		BDDB26BB2166F0F300A0E7BD /* abcd.png in Resources */ = {isa = PBXBuildFile; fileRef = BDDB26B92166F0F300A0E7BD /* abcd.png */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		944B02EA30A179989A1F088E /* Pods_JKSandBoxManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSandBoxManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCA66FD21DF5A0D002E6C34 /* 456.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = 456.bundle; sourceTree = "<group>"; };
 		BDDB26B92166F0F300A0E7BD /* abcd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abcd.png; sourceTree = "<group>"; };
 		E53059E1B090A4AF670CCC54 /* Pods-JKSandBoxManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSandBoxManager_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
 				6003F59B195388D20070C39A /* JKSandBoxManager-Prefix.pch */,
+				BDCA66FD21DF5A0D002E6C34 /* 456.bundle */,
 				BDDB26B92166F0F300A0E7BD /* abcd.png */,
 			);
 			name = "Supporting Files";
@@ -285,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				BDCA66FE21DF5A0D002E6C34 /* 456.bundle in Resources */,
 				BDDB26BA2166F0F300A0E7BD /* abcd.png in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,

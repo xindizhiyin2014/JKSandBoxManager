@@ -289,30 +289,56 @@
 
 + (NSBundle *)bundleWithPodName:(NSString *)podName{
     
-    if (!podName) {
+    return [self bundleWithBundleName:podName];
+}
+
++ (NSBundle *)bundleWithBundleName:(NSString *)bundleName{
+    if (!bundleName) {
         return [NSBundle mainBundle];
     }
     
-    NSBundle * bundle = [NSBundle bundleForClass:NSClassFromString(podName)];
-    NSURL * url = [bundle URLForResource:podName withExtension:@"bundle"];
-    NSArray *frameWorks = [NSBundle allFrameworks];
+    NSBundle * bundle = [NSBundle bundleForClass:NSClassFromString(bundleName)];
+    NSURL * url = [bundle URLForResource:bundleName withExtension:@"bundle"];
     if (!url) {
+        NSArray *frameWorks = [NSBundle allFrameworks];
         for (NSBundle *tempBundle in frameWorks) {
-            url = [tempBundle URLForResource:podName withExtension:@"bundle"];
+            url = [tempBundle URLForResource:bundleName withExtension:@"bundle"];
             if (url) {
-                break;
+                bundle =[NSBundle bundleWithURL:url];
+                if (!bundle.loaded) {
+                    [bundle load];
+                }
+                return bundle;
             }
         }
+    }else{
+        return bundle;
     }
-    if (!url) {
-        return nil;
-    }
-    NSBundle * pod_bundle =[NSBundle bundleWithURL:url];
-    if (!pod_bundle.loaded) {
-        [pod_bundle load];
+    return nil;
+}
+
++ (NSString *)filePathWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName{
+    if (!podName) {
+        NSBundle *bundle = [self bundleWithBundleName:bundleName];
+        NSString *filePath = [bundle pathForResource:fileName ofType:nil];
+        return filePath;
     }
     
-    return pod_bundle;
+    NSBundle *pod_bundle = [self bundleWithBundleName:podName];
+    if (!bundleName) {
+        NSString *filePath = [pod_bundle pathForResource:fileName ofType:nil];
+        return filePath;
+    }
+    
+    NSString *bundlePath = pod_bundle.bundlePath;
+    bundlePath = [NSString stringWithFormat:@"%@/%@.bundle",bundlePath,podName];
+    NSURL *url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@/%@.bundle",bundlePath,bundleName] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSBundle *bundle =[NSBundle bundleWithURL:url];
+    if (bundle) {
+        NSString *filePath = [bundle pathForResource:fileName ofType:nil];
+        return filePath;
+    }
+    return nil;
 }
 
 + (id)loadNibName:(NSString *)nibName podName:(NSString *)podName{

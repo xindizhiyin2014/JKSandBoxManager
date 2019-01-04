@@ -255,6 +255,24 @@
 + (NSBundle *)bundleWithPodName:(NSString *)podName;
 
 /**
+ 根据bundle名字获取bundle对象，只能获取mainBundle下的bundle
+
+ @param bundleName bundleName
+ @return bundle instance
+ */
++ (NSBundle *)bundleWithBundleName:(NSString *)bundleName;
+
+/**
+ 根据fileName、bundleName、podName、获取文件的组件化路径
+
+ @param bundleName bundleName
+ @param fileName fileName
+ @param podName podName
+ @return filePath
+ */
++ (NSString *)filePathWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName;
+
+/**
  获取某个podName下的nib文件并创建对象
  
  @param nibName xib文件的名字

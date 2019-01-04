@@ -146,6 +146,14 @@ beforeEach(^{
 
         
     });
+    
+    context(@"test bundle function", ^{
+        it(@"bundleWithPodName", ^{
+            NSString *filePath = [JKSandBoxManager filePathWithBundleName:@"123" fileName:@"desd.jpg" podName:@"JKSandBoxManager"];
+          
+            NSLog(@"AAA");
+        });
+    });
 });
 
 SPEC_END

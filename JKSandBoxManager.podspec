@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKSandBoxManager'
-  s.version          = '0.1.5.9'
+  s.version          = '0.1.6.0'
   s.summary          = 'the manager of sandbox,it contain the operations of sandbox.'
 
 # This description is used to generate tags and improve search results.
@@ -32,9 +32,9 @@ the manager of sandbox,it contain the operations of sandbox.it will be update wi
 
   s.source_files = 'JKSandBoxManager/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'JKSandBoxManager' => ['JKSandBoxManager/Assets/*.png']
-  # }
+   s.resource_bundles = {
+       'JKSandBoxManager' => ['JKSandBoxManager/Assets/*.{bundle,png}']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
