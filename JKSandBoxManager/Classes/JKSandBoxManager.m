@@ -289,20 +289,12 @@
 
 + (NSBundle *)bundleWithPodName:(NSString *)podName{
     
-    return [self bundleWithBundleName:podName];
-}
-
-+ (NSBundle *)bundleWithBundleName:(NSString *)bundleName{
-    if (!bundleName) {
-        return [NSBundle mainBundle];
-    }
-    
-    NSBundle * bundle = [NSBundle bundleForClass:NSClassFromString(bundleName)];
-    NSURL * url = [bundle URLForResource:bundleName withExtension:@"bundle"];
+    NSBundle * bundle = [NSBundle bundleForClass:NSClassFromString(podName)];
+    NSURL * url = [bundle URLForResource:podName withExtension:@"bundle"];
     if (!url) {
         NSArray *frameWorks = [NSBundle allFrameworks];
         for (NSBundle *tempBundle in frameWorks) {
-            url = [tempBundle URLForResource:bundleName withExtension:@"bundle"];
+            url = [tempBundle URLForResource:podName withExtension:@"bundle"];
             if (url) {
                 bundle =[NSBundle bundleWithURL:url];
                 if (!bundle.loaded) {
@@ -317,6 +309,18 @@
     return nil;
 }
 
++ (NSBundle *)bundleWithBundleName:(NSString *)bundleName{
+    if (!bundleName) {
+        return [NSBundle mainBundle];
+    }
+    
+    NSString *bundlePath = [NSBundle mainBundle].bundlePath;
+    bundlePath = [NSString stringWithFormat:@"%@/%@.bundle",bundlePath,bundleName];
+    NSURL *url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@",bundlePath] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSBundle *bundle =[NSBundle bundleWithURL:url];
+    return bundle;
+}
+
 + (NSString *)filePathWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName{
     if (!podName) {
         NSBundle *bundle = [self bundleWithBundleName:bundleName];
@@ -324,7 +328,7 @@
         return filePath;
     }
     
-    NSBundle *pod_bundle = [self bundleWithBundleName:podName];
+    NSBundle *pod_bundle = [self bundleWithPodName:podName];
     if (!bundleName) {
         NSString *filePath = [pod_bundle pathForResource:fileName ofType:nil];
         return filePath;
