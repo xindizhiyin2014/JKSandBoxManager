@@ -1,6 +1,6 @@
 PODS:
-  - JKSandBoxManager (0.1.5.9)
-  - Kiwi (2.4.0)
+  - JKSandBoxManager (0.1.6.2)
+  - Kiwi (3.0.0)
 
 DEPENDENCIES:
   - JKSandBoxManager (from `../`)
@@ -15,8 +15,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JKSandBoxManager: 2fb636b4e78b7015619827e1c1fc599876bd6ba8
-  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  JKSandBoxManager: 7313ee4b267bffb40ea6c143c7e12c1bd03ad395
+  Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
 
 PODFILE CHECKSUM: 91cd98d001b6cd433eb7afde937e8da4a7e76f74
 

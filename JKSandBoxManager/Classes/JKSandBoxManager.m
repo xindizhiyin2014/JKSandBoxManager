@@ -345,6 +345,17 @@
     return nil;
 }
 
++ (NSURL *)fileURLWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName{
+    NSString *filePath = [self filePathWithBundleName:bundleName fileName:fileName podName:podName];
+    NSString *fileURLStr = [NSString stringWithFormat:@"file://%@",filePath];
+    NSURL *fileURL = [NSURL URLWithString:fileURLStr];
+    if (!fileURL) {
+       fileURLStr = [fileURLStr stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        fileURL = [NSURL URLWithString:fileURLStr];
+    }
+    return fileURL;
+}
+
 + (id)loadNibName:(NSString *)nibName podName:(NSString *)podName{
     NSBundle *bundle =[self bundleWithPodName:podName];
     if (!bundle) {

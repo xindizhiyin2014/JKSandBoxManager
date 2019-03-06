@@ -154,6 +154,13 @@ beforeEach(^{
             NSLog(@"AAA");
         });
     });
+    context(@"test url function", ^{
+        it(@"fileURLWithBundleName", ^{
+            NSURL *fileURL = [JKSandBoxManager fileURLWithBundleName:@"123" fileName:@"desd.jpg" podName:@"JKSandBoxManager"];
+            
+            NSLog(@"AAA");
+        });
+    });
 });
 
 SPEC_END

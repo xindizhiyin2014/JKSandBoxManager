@@ -273,6 +273,16 @@
 + (NSString *)filePathWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName;
 
 /**
+ 根据fileName、bundleName、podName、获取文件的组件化路径URL
+ 
+ @param bundleName bundleName
+ @param fileName fileName
+ @param podName podName
+ @return filePath
+ */
++ (NSURL *)fileURLWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName;
+
+/**
  获取某个podName下的nib文件并创建对象
  
  @param nibName xib文件的名字
