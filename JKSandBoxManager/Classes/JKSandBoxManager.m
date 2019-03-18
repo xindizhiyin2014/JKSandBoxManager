@@ -304,6 +304,7 @@
             }
         }
     }else{
+        bundle =[NSBundle bundleWithURL:url];
         return bundle;
     }
     return nil;
