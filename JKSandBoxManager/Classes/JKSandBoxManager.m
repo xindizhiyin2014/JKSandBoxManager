@@ -288,7 +288,9 @@
 
 
 + (NSBundle *)bundleWithPodName:(NSString *)podName{
-    
+    if (!podName) {
+        return [NSBundle mainBundle];
+    }
     NSBundle * bundle = [NSBundle bundleForClass:NSClassFromString(podName)];
     NSURL * url = [bundle URLForResource:podName withExtension:@"bundle"];
     if (!url) {
