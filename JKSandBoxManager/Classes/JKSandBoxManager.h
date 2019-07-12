@@ -326,5 +326,23 @@
  */
 + (NSString*)fileMD5HashStringWithPath:(NSString*)filePath WithSize:(size_t)chunkSizeForReadingData;
 
+
+/**
+ 根据key获取本地化对应的value
+只能获取mainBundle下的
+ @param key key
+ @return value
+ */
++ (NSString *)localizedStringForKey:(NSString *)key;
+
+/**
+ 根据key获取本地化对应的value
+podName 为nil的时候获取mainBundle下的值
+ @param key key
+ @param podName 组件库的名字
+ @return value
+ */
++ (NSString *)localizedStringForKey:(NSString *)key podName:(NSString *)podName;
+
 @end
 

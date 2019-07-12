@@ -466,4 +466,14 @@ done:
     return result;
 }
 
++ (NSString *)localizedStringForKey:(NSString *)key{
+    return [self loadNibName:key podName:nil];
+}
+
++ (NSString *)localizedStringForKey:(NSString *)key podName:(NSString *)podName{
+    NSBundle *bundle = [self bundleWithPodName:podName];
+    NSString *value = [bundle localizedStringForKey:key value:nil table:nil];
+    return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
+}
+
 @end
