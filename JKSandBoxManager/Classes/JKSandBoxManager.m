@@ -466,12 +466,12 @@ done:
     return result;
 }
 
-+ (NSString *)localizedStringForKey:(NSString *)key{
-    return [self loadNibName:key podName:nil];
++ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language{
+    return [self localizedStringForKey:key language:language podName:nil];
 }
 
-+ (NSString *)localizedStringForKey:(NSString *)key podName:(NSString *)podName{
-    NSBundle *bundle = [self bundleWithPodName:podName];
++ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(NSString *)podName{
+    NSBundle *bundle = [NSBundle bundleWithPath:[[JKSandBoxManager bundleWithPodName:podName] pathForResource:language ofType:@"lproj"]];
     NSString *value = [bundle localizedStringForKey:key value:nil table:nil];
     return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
 }

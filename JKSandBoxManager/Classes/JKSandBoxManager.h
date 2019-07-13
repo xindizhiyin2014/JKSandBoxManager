@@ -331,18 +331,21 @@
  根据key获取本地化对应的value
 只能获取mainBundle下的
  @param key key
+ @param language 语言 中文简体: @"zh-Hans";
  @return value
  */
-+ (NSString *)localizedStringForKey:(NSString *)key;
++ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language;
 
 /**
  根据key获取本地化对应的value
 podName 为nil的时候获取mainBundle下的值
  @param key key
+ @param language 语言 中文简体: @"zh-Hans";
+
  @param podName 组件库的名字
  @return value
  */
-+ (NSString *)localizedStringForKey:(NSString *)key podName:(NSString *)podName;
++ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(NSString *)podName;
 
 @end
 

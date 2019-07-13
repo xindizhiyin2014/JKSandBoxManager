@@ -314,7 +314,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kiwi/Kiwi.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -323,7 +323,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3E0E69F211ED1D996A2D8E7B /* [CP] Check Pods Manifest.lock */ = {
@@ -350,7 +350,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/JKSandBoxManager/JKSandBoxManager.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -359,7 +359,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EDC89B1852C7AECB3D9B04E3 /* [CP] Check Pods Manifest.lock */ = {
