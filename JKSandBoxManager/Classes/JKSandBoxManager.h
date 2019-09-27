@@ -68,7 +68,8 @@
  @param exts 符合要求的后缀名列表
  @return 文件名列表
  */
-+ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath extensions:(NSArray <NSString *>*)exts;
++ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath
+                           extensions:(NSArray <NSString *>*)exts;
 
 /**
  获取某一路径下的文件列表，包含文件夹
@@ -109,7 +110,8 @@
  @param data 要写入的二进制数据
  @return 文件的沙盒路径
  */
-+ (NSString *)createDocumentsFilePathWithFileName:(NSString *)fileName data:(NSData *)data;
++ (NSString *)createDocumentsFilePathWithFileName:(NSString *)fileName
+                                             data:(NSData *)data;
 
 /**
  在沙盒documents文件夹中指定的文件夹下创建文件的路径
@@ -119,7 +121,9 @@
  @param data 要写入的二进制数据
  @return 文件的沙盒路径
  */
-+ (NSString *)createDocumentsFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data;
++ (NSString *)createDocumentsFilePathWithNameSpace:(NSString *)nameSpace
+                                          fileName:(NSString *)fileName
+                                              data:(NSData *)data;
 
 /**
  在cache文件夹下创建文件的路径
@@ -128,7 +132,8 @@
  @param data 要写入的二进制数据
  @return 文件的沙盒路径
  */
-+ (NSString *)createCacheFilePathWithFileName:(NSString *)fileName data:(NSData *)data;
++ (NSString *)createCacheFilePathWithFileName:(NSString *)fileName
+                                         data:(NSData *)data;
 
 /**
  在cache文件夹下指定的文件夹下创建文件的路径
@@ -138,7 +143,9 @@
  @param data 要写入的二进制数据
  @return 文件的沙盒路径
  */
-+ (NSString *)createCacheFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data;
++ (NSString *)createCacheFilePathWithNameSpace:(NSString *)nameSpace
+                                      fileName:(NSString *)fileName
+                                          data:(NSData *)data;
 
 /**
  在指定的文件夹路径下创建文件
@@ -148,7 +155,9 @@
  @param data 二进制数据
  @return 创建成功的文件沙盒路径
  */
-+ (NSString *)createFileAtFolderPath:(NSString *)folerPath fileName:(NSString *)fileName data:(NSData *)data;
++ (NSString *)createFileAtFolderPath:(NSString *)folerPath
+                            fileName:(NSString *)fileName
+                                data:(NSData *)data;
 
 /**
  在cache文件夹下创建文件夹
@@ -184,7 +193,8 @@
  @param originFilePath 某个文件或文件夹的路径
  @param targetFilePath 指定的路径
  */
-+ (BOOL)moveFileFrom:(NSString *)originFilePath to:(NSString *)targetFilePath;
++ (BOOL)moveFileFrom:(NSString *)originFilePath
+                  to:(NSString *)targetFilePath;
 
 /**
  将某个文件或者文件夹复制到指定的路径下
@@ -192,7 +202,8 @@
  @param originFilePath 某个文件或文件夹的路径
  @param targetFilePath 指定的路径
  */
-+ (BOOL)copyFileFrom:(NSString *)originFilePath to:(NSString *)targetFilePath;
++ (BOOL)copyFileFrom:(NSString *)originFilePath
+                  to:(NSString *)targetFilePath;
 
 /**
  根据文件的名字拼接文件在沙盒documents的路径，实际不创建文件
@@ -209,7 +220,8 @@
  @param fileName 文件的名字
  @return 沙盒的路径
  */
-+ (NSString *)appendDocumentsFilePathWithFolderName:(NSString *)folderName FileName:(NSString *)fileName;
++ (NSString *)appendDocumentsFilePathWithFolderName:(NSString *)folderName
+                                           fileName:(NSString *)fileName;
 
 /**
  根据文件的名字拼接文件在沙盒Cache的路径，实际不创建文件
@@ -226,7 +238,8 @@
  @param fileName 文件的名字
  @return 沙盒的路径
  */
-+ (NSString *)appendCacheFilePathWithFolderName:(NSString *)folderName FileName:(NSString *)fileName;
++ (NSString *)appendCacheFilePathWithFolderName:(NSString *)folderName
+                                       fileName:(NSString *)fileName;
 
 /**
  根据文件的名字拼接文件在沙盒Temporary的路径，实际不创建文件
@@ -244,7 +257,9 @@
  @param ext 文件的后缀名
  @return 文件的路径
  */
-+ (NSString *)pathWithFileName:(NSString *)fileName podName:(NSString *)podName ofType:(NSString *)ext;
++ (NSString *)pathWithFileName:(NSString *)fileName
+                       podName:(NSString *)podName
+                        ofType:(NSString *)ext;
 
 /**
  获取某个podName对象的bundle对象
@@ -270,7 +285,9 @@
  @param podName podName
  @return filePath
  */
-+ (NSString *)filePathWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName;
++ (NSString *)filePathWithBundleName:(NSString *)bundleName
+                            fileName:(NSString *)fileName
+                             podName:(NSString *)podName;
 
 /**
  根据fileName、bundleName、podName、获取文件的组件化路径URL
@@ -280,7 +297,9 @@
  @param podName podName
  @return filePath
  */
-+ (NSURL *)fileURLWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName;
++ (NSURL *)fileURLWithBundleName:(NSString *)bundleName
+                        fileName:(NSString *)fileName
+                         podName:(NSString *)podName;
 
 /**
  获取某个podName下的nib文件并创建对象
@@ -289,7 +308,8 @@
  @param podName pod库名 podName为nil的话，默认为MainBundle
  @return 创建好的对象
  */
-+ (id)loadNibName:(NSString *)nibName podName:(NSString *)podName;
++ (id)loadNibName:(NSString *)nibName
+          podName:(NSString *)podName;
 
 /**
  获取某个pod下的UIStoryboard文件的对象
@@ -298,7 +318,8 @@
  @param podName pod库名  podName为nil的话，默认为MainBundle
  @return UIStoryboard 对象
  */
-+ (UIStoryboard *)storyboardWithName:(NSString *)name podName:(NSString *)podName;
++ (UIStoryboard *)storyboardWithName:(NSString *)name
+                             podName:(NSString *)podName;
 
 /**
  在模块内查找UIImage的方法
@@ -307,7 +328,8 @@
  @param podName pod库名 podName为nil的话，默认为MainBundle
  @return UIImage对象
  */
-+ (UIImage *)imageWithName:(NSString *)imageName podName:(NSString *)podName;
++ (UIImage *)imageWithName:(NSString *)imageName
+                   podName:(NSString *)podName;
 
 /**
  对文件进行md5哈希操作 默认取文件的size为 1024 *8
@@ -324,9 +346,13 @@
  @param chunkSizeForReadingData 进行哈希的指定的片段文件的大小
  @return 哈希字符串
  */
-+ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath WithSize:(size_t)chunkSizeForReadingData;
++ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath
+                              withSize:(size_t)chunkSizeForReadingData;
 
 
+/// 根据key获取本地化对应的value,language 本地语言如果是@"zh-Hans" 为中文简体，其余情况为英文
+/// @param key key
++ (NSString *)localizedStringForKey:(NSString *)key;
 /**
  根据key获取本地化对应的value
 只能获取mainBundle下的
@@ -334,7 +360,14 @@
  @param language 语言 中文简体: @"zh-Hans";
  @return value
  */
-+ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language;
++ (NSString *)localizedStringForKey:(NSString *)key
+                           language:(NSString *)language;
+
+/// 根据key获取本地化对应的value，podName 为nil的时候获取mainBundle下的值；本地语言如果是@"zh-Hans" 为中文简体，其余情况为英文
+/// @param key key
+/// @param podName 组件库的名字
++ (NSString *)localizedStringForKey:(NSString *)key
+                            podName:(NSString *)podName;
 
 /**
  根据key获取本地化对应的value
@@ -345,7 +378,9 @@ podName 为nil的时候获取mainBundle下的值
  @param podName 组件库的名字
  @return value
  */
-+ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(NSString *)podName;
++ (NSString *)localizedStringForKey:(NSString *)key
+                           language:(NSString *)language
+                            podName:(NSString *)podName;
 
 @end
 

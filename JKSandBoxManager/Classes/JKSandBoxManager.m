@@ -13,33 +13,30 @@
 
 + (NSString *)getPathExtensionWith:(NSString *)filePath
 {
-//    NSString *pathExtension=nil;
-//    NSRange range = [filePath rangeOfString:@"[^\\.]+$" options:NSRegularExpressionSearch];
-//    if (range.location != NSNotFound) {
-//
-//        pathExtension = [filePath substringWithRange:range];
-//    }
     NSString *ext = [filePath pathExtension];
     return ext;
 }
 
-+ (NSString *)getFileNameWithFilePath:(NSString *)filePath{
++ (NSString *)getFileNameWithFilePath:(NSString *)filePath
+{
     NSString *fileName = [filePath lastPathComponent];
     return fileName;
 }
 
-+ (NSString *)getFileNameWithNoExtWithFilePath:(NSString *)filePath{
++ (NSString *)getFileNameWithNoExtWithFilePath:(NSString *)filePath
+{
     NSString *fileName = [filePath stringByDeletingPathExtension];
     return fileName;
 }
 
-+ (NSString *)getDirectoryWithFilePath:(NSString *)filePath{
++ (NSString *)getDirectoryWithFilePath:(NSString *)filePath
+{
     NSString *directory = [filePath stringByDeletingLastPathComponent];
     return directory;
 }
 
-+ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath{
-    
++ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath
+{
     NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];
     //新建数组，存放各个文件路径
     NSMutableArray *files = [NSMutableArray new];
@@ -53,10 +50,11 @@
         }
     }
     return [files copy];
-    
 }
 
-+ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath extensions:(NSArray <NSString *>*)exts{
++ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath
+                           extensions:(NSArray <NSString *>*)exts
+{
     NSArray *array = [self filesWithoutFolderAtPath:filePath];
     NSMutableArray *files = [NSMutableArray new];
     for (NSString *fileName in array) {
@@ -68,9 +66,8 @@
     return [files copy];
 }
 
-
-+ (NSArray *)filesWithFolderAtPath:(NSString *)filePath{
-    
++ (NSArray *)filesWithFolderAtPath:(NSString *)filePath
+{
     NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];
     //新建数组，存放各个文件路径
     NSMutableArray *files = [NSMutableArray new];
@@ -85,7 +82,8 @@
     return [files copy];
 }
 
-+ (NSArray *)foldersAtPath:(NSString *)filePath{
++ (NSArray *)foldersAtPath:(NSString *)filePath
+{
     NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];
     //新建数组，存放各个文件路径
     NSMutableArray *files = [NSMutableArray new];
@@ -101,25 +99,34 @@
     return [files copy];
 }
 
-+ (BOOL)isExistsFile:(NSString *)filepath{
++ (BOOL)isExistsFile:(NSString *)filepath
+{
     NSFileManager *filemanage = [NSFileManager defaultManager];
     return [filemanage fileExistsAtPath:filepath];
     
 }
 
-+ (BOOL)isDirectory:(NSString *)filePath{
++ (BOOL)isDirectory:(NSString *)filePath
+{
     BOOL isDirectory = NO;
     [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDirectory];
     return isDirectory;
 }
 
 
-+ (NSString *)createDocumentsFilePathWithFileName:(NSString *)fileName data:(NSData *)data{
++ (NSString *)createDocumentsFilePathWithFileName:(NSString *)fileName
+                                             data:(NSData *)data
+{
     
-    return [self createDocumentsFilePathWithNameSpace:nil fileName:fileName data:data];
+    return [self createDocumentsFilePathWithNameSpace:nil
+                                             fileName:fileName
+                                                 data:data];
 }
 
-+ (NSString *)createDocumentsFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data{
++ (NSString *)createDocumentsFilePathWithNameSpace:(NSString *)nameSpace
+                                          fileName:(NSString *)fileName
+                                              data:(NSData *)data
+{
     
     if (!data) {
         return nil;
@@ -132,12 +139,17 @@
 }
 
 
-+ (NSString *)createCacheFilePathWithFileName:(NSString *)fileName data:(NSData *)data{
++ (NSString *)createCacheFilePathWithFileName:(NSString *)fileName
+                                         data:(NSData *)data
+{
     
     return [self createCacheFilePathWithNameSpace:nil fileName:fileName data:data];
 }
 
-+ (NSString *)createCacheFilePathWithNameSpace:(NSString *)nameSpace fileName:(NSString *)fileName data:(NSData *)data{
++ (NSString *)createCacheFilePathWithNameSpace:(NSString *)nameSpace
+                                      fileName:(NSString *)fileName
+                                          data:(NSData *)data
+{
     if (!data) {
         return nil;
     }
@@ -148,7 +160,10 @@
     return filePath;
 }
 
-+ (NSString *)createFileAtFolderPath:(NSString *)folerPath fileName:(NSString *)fileName data:(NSData *)data{
++ (NSString *)createFileAtFolderPath:(NSString *)folerPath
+                            fileName:(NSString *)fileName
+                                data:(NSData *)data
+{
     if (!data) {
         return nil;
     }
@@ -163,7 +178,8 @@
     return nil;
 }
 
-+ (NSString *)createCacheFilePathWithFolderName:(NSString *)folderName{
++ (NSString *)createCacheFilePathWithFolderName:(NSString *)folderName
+{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cacheDir = [paths objectAtIndex:0];
     NSString *folderPath=folderName?[cacheDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@",folderName]]:cacheDir;
@@ -176,9 +192,8 @@
     
 }
 
-
-+ (NSString *)createDocumentsFilePathWithFolderName:(NSString *)folderName{
-    
++ (NSString *)createDocumentsFilePathWithFolderName:(NSString *)folderName
+{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
     
@@ -186,31 +201,32 @@
     if ([self isExistsFile:folderPath]) {
         return folderPath;
     }
-    [[NSFileManager defaultManager]   createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:nil];
+    [[NSFileManager defaultManager] createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:nil];
     return folderPath;
 }
 
-+ (NSString *)createDirectoryWithPath:(NSString *)filePath{
++ (NSString *)createDirectoryWithPath:(NSString *)filePath
+{
     if ([self isExistsFile:filePath]) {
         return filePath;
     }
     
     [[NSFileManager defaultManager]   createDirectoryAtPath:filePath withIntermediateDirectories:YES attributes:nil error:nil];
-    
     return filePath;
 }
 
-+ (BOOL)deleteFile:(NSString *)filePath{
++ (BOOL)deleteFile:(NSString *)filePath
+{
     NSError *error =nil;
     if (!filePath) {
         return NO;
     }
-    
     return [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
-    
 }
 
-+ (BOOL)moveFileFrom:(NSString *)originFilePath to:(NSString *)targetFilePath{
++ (BOOL)moveFileFrom:(NSString *)originFilePath
+                  to:(NSString *)targetFilePath
+{
     NSError *error = nil;
     if (!(originFilePath&&targetFilePath)) {
         return NO;
@@ -224,7 +240,9 @@
 }
 
 
-+ (BOOL)copyFileFrom:(NSString *)originFilePath to:(NSString *)targetFilePath{
++ (BOOL)copyFileFrom:(NSString *)originFilePath
+                  to:(NSString *)targetFilePath
+{
     NSError *error = nil;
     if (!(originFilePath&&targetFilePath)) {
         return NO;
@@ -236,13 +254,14 @@
     return [[NSFileManager defaultManager] copyItemAtPath:originFilePath toPath:targetFilePath error:&error];
 }
 
-+ (NSString *)appendDocumentsFilePathWithFileName:(NSString *)fileName{
-    
-    return [self appendDocumentsFilePathWithFolderName:nil FileName:fileName];
++ (NSString *)appendDocumentsFilePathWithFileName:(NSString *)fileName
+{
+    return [self appendDocumentsFilePathWithFolderName:nil
+                                              fileName:fileName];
 }
 
-+ (NSString *)appendDocumentsFilePathWithFolderName:(NSString *)folderName FileName:(NSString *)fileName;{
-    
++ (NSString *)appendDocumentsFilePathWithFolderName:(NSString *)folderName fileName:(NSString *)fileName
+{
     if (!folderName || [folderName isEqualToString:@""]) {
         return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathDocument,fileName];
     }
@@ -250,28 +269,29 @@
     return [NSString stringWithFormat:@"%@/%@",[self createDocumentsFilePathWithFolderName:folderName],fileName];
 }
 
-+ (NSString *)appendCacheFilePathWithFileName:(NSString *)fileName{
-    
-    return [self appendCacheFilePathWithFolderName:nil FileName:fileName];
++ (NSString *)appendCacheFilePathWithFileName:(NSString *)fileName
+{
+    return [self appendCacheFilePathWithFolderName:nil
+                                          fileName:fileName];
 }
 
-+ (NSString *)appendCacheFilePathWithFolderName:(NSString *)folderName FileName:(NSString *)fileName{
-    
++ (NSString *)appendCacheFilePathWithFolderName:(NSString *)folderName
+                                       fileName:(NSString *)fileName
+{
     if (!folderName || [folderName isEqualToString:@""]) {
         return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathCache,fileName];
     }
-    
     return [NSString stringWithFormat:@"%@/%@",[self createCacheFilePathWithFolderName:folderName],fileName];
-    
 }
 
-
-+ (NSString *)appendTemporaryFilePathWithFileName:(NSString *)fileName{
++ (NSString *)appendTemporaryFilePathWithFileName:(NSString *)fileName
+{
     return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathTemp,fileName];
 }
 
-+ (NSString *)pathWithFileName:(NSString *)fileName podName:(NSString *)podName ofType:(NSString *)ext{
-    
++ (NSString *)pathWithFileName:(NSString *)fileName
+                       podName:(NSString *)podName ofType:(NSString *)ext
+{
     if (!fileName ) {
         return nil;
     }
@@ -286,8 +306,8 @@
     return filePath;
 }
 
-
-+ (NSBundle *)bundleWithPodName:(NSString *)podName{
++ (NSBundle *)bundleWithPodName:(NSString *)podName
+{
     if (!podName) {
         return [NSBundle mainBundle];
     }
@@ -312,7 +332,8 @@
     return nil;
 }
 
-+ (NSBundle *)bundleWithBundleName:(NSString *)bundleName{
++ (NSBundle *)bundleWithBundleName:(NSString *)bundleName
+{
     if (!bundleName) {
         return [NSBundle mainBundle];
     }
@@ -324,7 +345,10 @@
     return bundle;
 }
 
-+ (NSString *)filePathWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName{
++ (NSString *)filePathWithBundleName:(NSString *)bundleName
+                            fileName:(NSString *)fileName
+                             podName:(NSString *)podName
+{
     if (!podName) {
         NSBundle *bundle = [self bundleWithBundleName:bundleName];
         NSString *filePath = [bundle pathForResource:fileName ofType:nil];
@@ -348,7 +372,10 @@
     return nil;
 }
 
-+ (NSURL *)fileURLWithBundleName:(NSString *)bundleName fileName:(NSString *)fileName podName:(NSString *)podName{
++ (NSURL *)fileURLWithBundleName:(NSString *)bundleName
+                        fileName:(NSString *)fileName
+                         podName:(NSString *)podName
+{
     NSString *filePath = [self filePathWithBundleName:bundleName fileName:fileName podName:podName];
     NSString *fileURLStr = [NSString stringWithFormat:@"file://%@",filePath];
     NSURL *fileURL = [NSURL URLWithString:fileURLStr];
@@ -359,7 +386,9 @@
     return fileURL;
 }
 
-+ (id)loadNibName:(NSString *)nibName podName:(NSString *)podName{
++ (id)loadNibName:(NSString *)nibName
+          podName:(NSString *)podName
+{
     NSBundle *bundle =[self bundleWithPodName:podName];
     if (!bundle) {
         return nil;
@@ -368,7 +397,9 @@
     return object;
 }
 
-+ (UIStoryboard *)storyboardWithName:(NSString *)name podName:(NSString *)podName{
++ (UIStoryboard *)storyboardWithName:(NSString *)name
+                             podName:(NSString *)podName
+{
     NSBundle *bundle =[self bundleWithPodName:podName];
     if (!bundle) {
         return nil;
@@ -377,7 +408,9 @@
     return storyBoard;
 }
 
-+ (UIImage *)imageWithName:(NSString *)imageName podName:(NSString *)podName {
++ (UIImage *)imageWithName:(NSString *)imageName
+                   podName:(NSString *)podName
+{
     NSBundle * pod_bundle =[self bundleWithPodName:podName];
     if (!pod_bundle) {
         return nil;
@@ -389,12 +422,15 @@
     return image;
 }
 
-+ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath{
-   return [self fileMD5HashStringWithPath:filePath WithSize:1024 *8];
++ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath
+{
+   return [self fileMD5HashStringWithPath:filePath
+                                 withSize:1024 *8];
 }
 
-+ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath WithSize:(size_t)chunkSizeForReadingData{
-    
++ (NSString*)fileMD5HashStringWithPath:(NSString*)filePath
+                              withSize:(size_t)chunkSizeForReadingData
+{
     NSMutableString *result=nil;
     CFReadStreamRef readStream = NULL;
     
@@ -465,12 +501,44 @@ done:
     }
     return result;
 }
++ (NSString *)localizedStringForKey:(NSString *)key
+{
+    NSArray *languages = [NSLocale preferredLanguages];
+    NSString *language = [languages objectAtIndex:0];
+    if ([language hasPrefix:@"zh"]){
+        language = @"zh-Hans";
+    } else {
+        language = @"en";
+    }
+    return [self localizedStringForKey:key
+                              language:language];
+}
 
-+ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language{
++ (NSString *)localizedStringForKey:(NSString *)key
+                           language:(NSString *)language
+{
     return [self localizedStringForKey:key language:language podName:nil];
 }
 
-+ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(NSString *)podName{
++ (NSString *)localizedStringForKey:(NSString *)key
+podName:(NSString *)podName
+{
+ NSArray *languages = [NSLocale preferredLanguages];
+    NSString *language = [languages objectAtIndex:0];
+    if ([language hasPrefix:@"zh"]){
+        language = @"zh-Hans";
+    } else {
+        language = @"en";
+    }
+    return [self localizedStringForKey:key
+                              language:language
+                               podName:nil];
+}
+
++ (NSString *)localizedStringForKey:(NSString *)key
+                           language:(NSString *)language
+                            podName:(NSString *)podName
+{
     NSBundle *bundle = [NSBundle bundleWithPath:[[JKSandBoxManager bundleWithPodName:podName] pathForResource:language ofType:@"lproj"]];
     NSString *value = [bundle localizedStringForKey:key value:nil table:nil];
     return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
