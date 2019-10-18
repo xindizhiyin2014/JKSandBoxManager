@@ -11,6 +11,21 @@
 
 @implementation JKSandBoxManager
 
++ (NSString *)tempPath
+{
+    return NSTemporaryDirectory();
+}
+
++ (NSString *)cachePath
+{
+    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+}
+
++ (NSString *)documentPath
+{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+}
+
 + (NSString *)getPathExtensionWith:(NSString *)filePath
 {
     NSString *ext = [filePath pathExtension];
@@ -340,7 +355,7 @@
     
     NSString *bundlePath = [NSBundle mainBundle].bundlePath;
     bundlePath = [NSString stringWithFormat:@"%@/%@.bundle",bundlePath,bundleName];
-    NSURL *url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@",bundlePath] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURL *url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@",bundlePath] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     NSBundle *bundle =[NSBundle bundleWithURL:url];
     return bundle;
 }
@@ -363,7 +378,7 @@
     
     NSString *bundlePath = pod_bundle.bundlePath;
     bundlePath = [NSString stringWithFormat:@"%@/%@.bundle",bundlePath,podName];
-    NSURL *url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@/%@.bundle",bundlePath,bundleName] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURL *url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@/%@.bundle",bundlePath,bundleName] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     NSBundle *bundle =[NSBundle bundleWithURL:url];
     if (bundle) {
         NSString *filePath = [bundle pathForResource:fileName ofType:nil];

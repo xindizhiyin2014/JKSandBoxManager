@@ -21,6 +21,15 @@
 
 @interface JKSandBoxManager : NSObject
 
+/// 沙盒temp文件夹路径
++ (NSString *)tempPath;
+
+/// 沙盒cache文件夹路径
++ (NSString *)cachePath;
+
+/// 沙盒document路径
++ (NSString *)documentPath;
+
 /**
  获取文件的后缀名
  

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKSandBoxManager'
-  s.version          = '0.1.6.8'
+  s.version          = '0.1.6.9'
   s.summary          = 'the manager of sandbox,it contain the operations of sandbox.'
 
 # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ the manager of sandbox,it contain the operations of sandbox.it will be update wi
   s.source           = { :git => 'https://github.com/xindizhiyin2014/JKSandBoxManager.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'JKSandBoxManager/Classes/**/*'
   
