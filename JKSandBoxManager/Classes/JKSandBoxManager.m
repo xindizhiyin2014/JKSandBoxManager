@@ -554,9 +554,12 @@ podName:(NSString *)podName
                            language:(NSString *)language
                             podName:(NSString *)podName
 {
-    NSBundle *bundle = [NSBundle bundleWithPath:[[JKSandBoxManager bundleWithPodName:podName] pathForResource:language ofType:@"lproj"]];
-    NSString *value = [bundle localizedStringForKey:key value:nil table:podName];
-    return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
+    if (podName) {
+        NSBundle *bundle = [NSBundle bundleWithPath:[[JKSandBoxManager bundleWithPodName:podName] pathForResource:language ofType:@"lproj"]];
+        NSString *value = [bundle localizedStringForKey:key value:nil table:podName];
+        return value;
+    }
+    return [[NSBundle mainBundle] localizedStringForKey:key value:nil table:nil];
 }
 
 @end
