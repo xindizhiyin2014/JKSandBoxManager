@@ -547,7 +547,7 @@ podName:(NSString *)podName
     }
     return [self localizedStringForKey:key
                               language:language
-                               podName:nil];
+                               podName:podName];
 }
 
 + (NSString *)localizedStringForKey:(NSString *)key
@@ -555,7 +555,7 @@ podName:(NSString *)podName
                             podName:(NSString *)podName
 {
     NSBundle *bundle = [NSBundle bundleWithPath:[[JKSandBoxManager bundleWithPodName:podName] pathForResource:language ofType:@"lproj"]];
-    NSString *value = [bundle localizedStringForKey:key value:nil table:nil];
+    NSString *value = [bundle localizedStringForKey:key value:nil table:podName];
     return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
 }
 
