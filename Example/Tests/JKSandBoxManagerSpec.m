@@ -161,6 +161,24 @@ beforeEach(^{
             NSLog(@"AAA");
         });
     });
+    
+    context(@"appendFilePathWithFolderPath:fileName:", ^{
+        it(@"folderPath has hasSuffix:/", ^{
+            NSString *folderPath = @"aaa/";
+            NSString *fileName = @"bbb";
+            NSString *filePath = [JKSandBoxManager appendFilePathWithFolderPath:folderPath fileName:fileName];
+            BOOL result = [filePath isEqualToString:[NSString stringWithFormat:@"%@%@",folderPath,fileName]];
+            [[theValue(result) should] beYes];
+        });
+        
+        it(@"folderPath do not has hasSuffix:/", ^{
+            NSString *folderPath = @"aaa";
+            NSString *fileName = @"bbb";
+            NSString *filePath = [JKSandBoxManager appendFilePathWithFolderPath:folderPath fileName:fileName];
+            BOOL result = [filePath isEqualToString:[NSString stringWithFormat:@"%@/%@",folderPath,fileName]];
+            [[theValue(result) should] beYes];
+        });
+    });
 });
 
 SPEC_END

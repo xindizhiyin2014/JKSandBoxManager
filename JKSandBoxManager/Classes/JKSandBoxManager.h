@@ -258,6 +258,12 @@
  */
 + (NSString *)appendTemporaryFilePathWithFileName:(NSString *)fileName;
 
+/// 根据文件夹路径拼接文件路径
+/// @param folderPath 文件夹路径
+/// @param fileName 文件名字
++ (NSString *)appendFilePathWithFolderPath:(NSString *)folderPath
+                                  fileName:(NSString *)fileName;
+
 /**
  获取某个Bundle下的文件的路径
  

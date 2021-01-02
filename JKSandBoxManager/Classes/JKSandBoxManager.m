@@ -304,6 +304,15 @@
     return [NSString stringWithFormat:@"%@/%@",JKSandBoxPathTemp,fileName];
 }
 
++ (NSString *)appendFilePathWithFolderPath:(NSString *)folderPath
+                                  fileName:(NSString *)fileName
+{
+    if ([folderPath hasSuffix:@"/"]) {
+        return [NSString stringWithFormat:@"%@%@",folderPath,fileName];
+    }
+    return [NSString stringWithFormat:@"%@/%@",folderPath,fileName];
+}
+
 + (NSString *)pathWithFileName:(NSString *)fileName
                        podName:(NSString *)podName ofType:(NSString *)ext
 {
