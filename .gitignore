@@ -31,3 +31,7 @@ Carthage
 # `pod install` in .travis.yml
 #
 # Pods/
+Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager.debug.xcconfig
+Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager.release.xcconfig
+Example/Pods/Target Support Files/Kiwi/Kiwi.debug.xcconfig
+Example/Pods/Target Support Files/Kiwi/Kiwi.release.xcconfig
