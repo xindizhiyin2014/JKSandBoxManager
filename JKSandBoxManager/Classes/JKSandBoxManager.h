@@ -110,7 +110,7 @@
  @param filePath 文件的沙盒路径
  @return 是否是文件夹
  */
-+ (BOOL)isDirectory:(NSString *)filePath;
++ (BOOL)isExistDirectory:(NSString *)filePath;
 
 /**
  在沙盒documents文件夹中创建文件的路径

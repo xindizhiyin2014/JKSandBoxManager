@@ -121,11 +121,11 @@
     
 }
 
-+ (BOOL)isDirectory:(NSString *)filePath
++ (BOOL)isExistDirectory:(NSString *)filePath
 {
     BOOL isDirectory = NO;
-    [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDirectory];
-    return isDirectory;
+    BOOL isExist = [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&isDirectory];
+    return isExist && isDirectory;
 }
 
 
