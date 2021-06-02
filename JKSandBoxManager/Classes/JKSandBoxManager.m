@@ -59,7 +59,7 @@
     NSString *fileName=nil;
     while (fileName = [dirEnum nextObject]) {
         NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@",filePath,fileName];
-        BOOL isDirectory = [self isDirectory:tempFilePath];
+        BOOL isDirectory = [self isExistDirectory:tempFilePath];
         if (!isDirectory && ![fileName containsString:@"/"]) {
             [files addObject:fileName];
         }
@@ -106,7 +106,7 @@
     NSString *fileName=nil;
     while (fileName = [dirEnum nextObject]) {
         NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@",filePath,fileName];
-        BOOL isDirectory = [self isDirectory:tempFilePath];
+        BOOL isDirectory = [self isExistDirectory:tempFilePath];
         if (isDirectory) {
             [files addObject:fileName];
         }
@@ -183,7 +183,7 @@
         return nil;
     }
     
-    if(![JKSandBoxManager isDirectory:folerPath]){
+    if(![JKSandBoxManager isExistDirectory:folerPath]){
         [JKSandBoxManager createDirectoryWithPath:folerPath];
     }
     NSString *filePath =[NSString stringWithFormat:@"%@/%@",folerPath,fileName];
