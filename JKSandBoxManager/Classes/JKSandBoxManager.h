@@ -264,6 +264,11 @@
 + (NSString *)appendFilePathWithFolderPath:(NSString *)folderPath
                                   fileName:(NSString *)fileName;
 
+/// 获取相对路径，返回的相对路径带/
+/// @param targetPath 当前路径
+/// @param path 比较的路径
++ (nullable NSString *)relativePath:(NSString *)targetPath toPath:(NSString *)path;
+
 /**
  获取某个Bundle下的文件的路径
  

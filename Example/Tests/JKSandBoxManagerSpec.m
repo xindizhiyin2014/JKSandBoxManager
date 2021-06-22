@@ -179,6 +179,30 @@ beforeEach(^{
             [[theValue(result) should] beYes];
         });
     });
+    
+    context(@"relativePath:toPath:", ^{
+        
+        it(@"targetPath.length < path.length", ^{
+            NSString *targetPath = @"aaa";
+            NSString *path = @"aaa/bbb";
+            [[theBlock(^{
+                                        [JKSandBoxManager relativePath:targetPath toPath:path];
+            }) should] raiseWithReason:@"targetPath.length < path.length"];
+        });
+        it(@"has no same prefix", ^{
+            NSString *targetPath = @"aaa/bbb";
+            NSString *path = @"bbb";
+            [[theBlock(^{
+                                        [JKSandBoxManager relativePath:targetPath toPath:path];
+            }) should] raiseWithReason:@"has no same prefix"];
+        });
+        it(@"right case", ^{
+            NSString *targetPath = [JKSandBoxPathDocument stringByAppendingPathComponent:@"a/b/c"];
+            NSString *path = JKSandBoxPathDocument;
+            NSString *relativePath = [JKSandBoxManager relativePath:targetPath toPath:path];
+            [[theValue([relativePath isEqualToString:@"/a/b/c"]) should] beYes];
+        });
+    });
 });
 
 SPEC_END

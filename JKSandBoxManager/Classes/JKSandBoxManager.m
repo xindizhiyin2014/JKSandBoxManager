@@ -313,6 +313,25 @@
     return [NSString stringWithFormat:@"%@/%@",folderPath,fileName];
 }
 
++ (nullable NSString *)relativePath:(NSString *)targetPath
+                    toPath:(NSString *)path
+{
+    if (targetPath.length < path.length) {
+#if DEBUG
+        NSAssert(NO, @"targetPath.length < path.length");
+#endif
+        return nil;
+    }
+    if (![targetPath hasPrefix:path]) {
+#if DEBUG
+        NSAssert(NO, @"has no same prefix");
+#endif
+        return nil;
+    }
+  NSString *relativePath = [targetPath substringFromIndex:path.length];
+    return relativePath;
+}
+
 + (NSString *)pathWithFileName:(NSString *)fileName
                        podName:(NSString *)podName ofType:(NSString *)ext
 {
