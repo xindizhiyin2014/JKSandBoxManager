@@ -35,3 +35,231 @@ Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager.debug.xcconf
 Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager.release.xcconfig
 Example/Pods/Target Support Files/Kiwi/Kiwi.debug.xcconfig
 Example/Pods/Target Support Files/Kiwi/Kiwi.release.xcconfig
+OC/Example/Pods/Target Support Files/JKSandBoxManager/Info.plist
+OC/Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager-Info.plist
+OC/Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager-dummy.m
+OC/Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager-prefix.pch
+OC/Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager-umbrella.h
+OC/Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager.debug.xcconfig
+OC/Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager.modulemap
+OC/Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager.release.xcconfig
+OC/Example/Pods/Target Support Files/JKSandBoxManager/JKSandBoxManager.xcconfig
+OC/Example/Pods/Target Support Files/Kiwi/Info.plist
+OC/Example/Pods/Target Support Files/Kiwi/Kiwi-Info.plist
+OC/Example/Pods/Target Support Files/Kiwi/Kiwi-dummy.m
+OC/Example/Pods/Target Support Files/Kiwi/Kiwi-prefix.pch
+OC/Example/Pods/Target Support Files/Kiwi/Kiwi-umbrella.h
+OC/Example/Pods/Target Support Files/Kiwi/Kiwi.debug.xcconfig
+OC/Example/Pods/Target Support Files/Kiwi/Kiwi.modulemap
+OC/Example/Pods/Target Support Files/Kiwi/Kiwi.release.xcconfig
+OC/Example/Pods/Target Support Files/Kiwi/Kiwi.xcconfig
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Info.plist
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-Info.plist
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-acknowledgements.markdown
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-acknowledgements.plist
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-dummy.m
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-frameworks.sh
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-resources.sh
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example-umbrella.h
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example.debug.xcconfig
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example.modulemap
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example.release.xcconfig
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Info.plist
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-Info.plist
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-acknowledgements.markdown
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-acknowledgements.plist
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-dummy.m
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-frameworks.sh
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-resources.sh
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests-umbrella.h
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests.debug.xcconfig
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests.modulemap
+OC/Example/Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests.release.xcconfig
+OC/Example/Pods/Kiwi/Classes/Core/NSMethodSignature+KiwiAdditions.h
+OC/Example/Pods/Kiwi/Classes/Core/NSMethodSignature+KiwiAdditions.m
+OC/Example/Pods/Kiwi/Classes/Core/NSNumber+KiwiAdditions.h
+OC/Example/Pods/Kiwi/Classes/Core/NSNumber+KiwiAdditions.m
+OC/Example/Pods/Kiwi/Classes/Core/NSObject+KiwiSpyAdditions.h
+OC/Example/Pods/Kiwi/Classes/Core/NSObject+KiwiSpyAdditions.m
+OC/Example/Pods/Kiwi/Classes/Core/NSObject+KiwiVerifierAdditions.h
+OC/Example/Pods/Kiwi/Classes/Core/NSObject+KiwiVerifierAdditions.m
+OC/Example/Pods/Kiwi/Classes/Core/NSProxy+KiwiVerifierAdditions.h
+OC/Example/Pods/Kiwi/Classes/Core/NSProxy+KiwiVerifierAdditions.m
+OC/Example/Pods/Kiwi/Classes/Core/NSValue+KiwiAdditions.h
+OC/Example/Pods/Kiwi/Classes/Core/NSValue+KiwiAdditions.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeBetweenMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeBetweenMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeEmptyMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeEmptyMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeIdenticalToMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeIdenticalToMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeKindOfClassMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeKindOfClassMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeMemberOfClassMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeMemberOfClassMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeSubclassOfClassMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeSubclassOfClassMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeTrueMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeTrueMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeWithinMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeWithinMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeZeroMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBeZeroMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBlockRaiseMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWBlockRaiseMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWChangeMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWChangeMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWConformToProtocolMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWConformToProtocolMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWContainMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWContainMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWContainStringMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWContainStringMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWEqualMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWEqualMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWGenericMatchEvaluator.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWGenericMatchEvaluator.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWGenericMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWGenericMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWGenericMatchingAdditions.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWGenericMatchingAdditions.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWHaveMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWHaveMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWHaveValueMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWHaveValueMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWInequalityMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWInequalityMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWNilMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWNilMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWNotificationMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWNotificationMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWReceiveMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWReceiveMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWRegularExpressionPatternMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWRegularExpressionPatternMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWRespondToSelectorMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWRespondToSelectorMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWStringContainsMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWStringContainsMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWStringPrefixMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWStringPrefixMatcher.m
+OC/Example/Pods/Kiwi/Classes/Matchers/KWUserDefinedMatcher.h
+OC/Example/Pods/Kiwi/Classes/Matchers/KWUserDefinedMatcher.m
+OC/Example/Pods/Kiwi/Classes/Mocking/KWMock.h
+OC/Example/Pods/Kiwi/Classes/Mocking/KWMock.m
+OC/Example/Pods/Kiwi/Classes/Mocking/NSObject+KiwiMockAdditions.h
+OC/Example/Pods/Kiwi/Classes/Mocking/NSObject+KiwiMockAdditions.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWAfterAllNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWAfterAllNode.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWAfterEachNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWAfterEachNode.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWBeforeAllNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWBeforeAllNode.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWBeforeEachNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWBeforeEachNode.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWBlockNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWBlockNode.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWContextNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWContextNode.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWExampleNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWItNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWItNode.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWLetNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWLetNode.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWPendingNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWPendingNode.m
+OC/Example/Pods/Kiwi/Classes/Nodes/KWRegisterMatchersNode.h
+OC/Example/Pods/Kiwi/Classes/Nodes/KWRegisterMatchersNode.m
+OC/Example/Pods/Kiwi/Classes/Shared Examples/KWSharedExample.h
+OC/Example/Pods/Kiwi/Classes/Shared Examples/KWSharedExample.m
+OC/Example/Pods/Kiwi/Classes/Shared Examples/KWSharedExampleRegistry.h
+OC/Example/Pods/Kiwi/Classes/Shared Examples/KWSharedExampleRegistry.m
+OC/Example/Pods/Kiwi/Classes/Stubbing/KWIntercept.h
+OC/Example/Pods/Kiwi/Classes/Stubbing/KWIntercept.m
+OC/Example/Pods/Kiwi/Classes/Stubbing/KWStub.h
+OC/Example/Pods/Kiwi/Classes/Stubbing/KWStub.m
+OC/Example/Pods/Kiwi/Classes/Stubbing/NSObject+KiwiStubAdditions.h
+OC/Example/Pods/Kiwi/Classes/Stubbing/NSObject+KiwiStubAdditions.m
+OC/Example/Pods/Kiwi/Classes/Verifiers/KWAsyncVerifier.h
+OC/Example/Pods/Kiwi/Classes/Verifiers/KWAsyncVerifier.m
+OC/Example/Pods/Kiwi/Classes/Verifiers/KWExistVerifier.h
+OC/Example/Pods/Kiwi/Classes/Verifiers/KWExistVerifier.m
+OC/Example/Pods/Kiwi/Classes/Verifiers/KWMatchVerifier.h
+OC/Example/Pods/Kiwi/Classes/Verifiers/KWMatchVerifier.m
+OC/Example/Pods/Kiwi/Classes/Verifiers/KWVerifying.h
+OC/Example/Pods/Kiwi/License.txt
+OC/Example/Pods/Kiwi/README.md
+OC/Example/Pods/Kiwi/Classes/Config/KWAllTestsSuite.m
+OC/Example/Pods/Kiwi/Classes/Config/KWSuiteConfigurationBase.h
+OC/Example/Pods/Kiwi/Classes/Config/KWSuiteConfigurationBase.m
+OC/Example/Pods/Kiwi/Classes/Core/KWAny.h
+OC/Example/Pods/Kiwi/Classes/Core/KWAny.m
+OC/Example/Pods/Kiwi/Classes/Core/KWBackgroundTask.h
+OC/Example/Pods/Kiwi/Classes/Core/KWBackgroundTask.m
+OC/Example/Pods/Kiwi/Classes/Core/KWBlock.h
+OC/Example/Pods/Kiwi/Classes/Core/KWBlock.m
+OC/Example/Pods/Kiwi/Classes/Core/KWCallSite.h
+OC/Example/Pods/Kiwi/Classes/Core/KWCallSite.m
+OC/Example/Pods/Kiwi/Classes/Core/KWCaptureSpy.h
+OC/Example/Pods/Kiwi/Classes/Core/KWCaptureSpy.m
+OC/Example/Pods/Kiwi/Classes/Core/KWCountType.h
+OC/Example/Pods/Kiwi/Classes/Core/KWDeviceInfo.h
+OC/Example/Pods/Kiwi/Classes/Core/KWDeviceInfo.m
+OC/Example/Pods/Kiwi/Classes/Core/KWExample.h
+OC/Example/Pods/Kiwi/Classes/Core/KWExample.m
+OC/Example/Pods/Kiwi/Classes/Core/KWExampleDelegate.h
+OC/Example/Pods/Kiwi/Classes/Core/KWExampleNodeVisitor.h
+OC/Example/Pods/Kiwi/Classes/Core/KWExampleSuite.h
+OC/Example/Pods/Kiwi/Classes/Core/KWExampleSuite.m
+OC/Example/Pods/Kiwi/Classes/Core/KWExampleSuiteBuilder.h
+OC/Example/Pods/Kiwi/Classes/Core/KWExampleSuiteBuilder.m
+OC/Example/Pods/Kiwi/Classes/Core/KWExpectationType.h
+OC/Example/Pods/Kiwi/Classes/Core/KWFailure.h
+OC/Example/Pods/Kiwi/Classes/Core/KWFailure.m
+OC/Example/Pods/Kiwi/Classes/Core/KWFormatter.h
+OC/Example/Pods/Kiwi/Classes/Core/KWFormatter.m
+OC/Example/Pods/Kiwi/Classes/Core/KWFutureObject.h
+OC/Example/Pods/Kiwi/Classes/Core/KWFutureObject.m
+OC/Example/Pods/Kiwi/Classes/Core/KWInvocationCapturer.h
+OC/Example/Pods/Kiwi/Classes/Core/KWInvocationCapturer.m
+OC/Example/Pods/Kiwi/Classes/Core/KWLet.h
+OC/Example/Pods/Kiwi/Classes/Core/KWMatcher.h
+OC/Example/Pods/Kiwi/Classes/Core/KWMatcher.m
+OC/Example/Pods/Kiwi/Classes/Core/KWMatcherFactory.h
+OC/Example/Pods/Kiwi/Classes/Core/KWMatcherFactory.m
+OC/Example/Pods/Kiwi/Classes/Core/KWMatchers.h
+OC/Example/Pods/Kiwi/Classes/Core/KWMatchers.m
+OC/Example/Pods/Kiwi/Classes/Core/KWMatching.h
+OC/Example/Pods/Kiwi/Classes/Core/KWMessagePattern.h
+OC/Example/Pods/Kiwi/Classes/Core/KWMessagePattern.m
+OC/Example/Pods/Kiwi/Classes/Core/KWMessageSpying.h
+OC/Example/Pods/Kiwi/Classes/Core/KWMessageTracker.h
+OC/Example/Pods/Kiwi/Classes/Core/KWMessageTracker.m
+OC/Example/Pods/Kiwi/Classes/Core/KWNull.h
+OC/Example/Pods/Kiwi/Classes/Core/KWNull.m
+OC/Example/Pods/Kiwi/Classes/Core/KWObjCUtilities.h
+OC/Example/Pods/Kiwi/Classes/Core/KWObjCUtilities.m
+OC/Example/Pods/Kiwi/Classes/Core/KWProbe.h
+OC/Example/Pods/Kiwi/Classes/Core/KWProbePoller.h
+OC/Example/Pods/Kiwi/Classes/Core/KWProbePoller.m
+OC/Example/Pods/Kiwi/Classes/Core/KWReporting.h
+OC/Example/Pods/Kiwi/Classes/Core/KWSpec.h
+OC/Example/Pods/Kiwi/Classes/Core/KWSpec.m
+OC/Example/Pods/Kiwi/Classes/Core/KWStringUtilities.h
+OC/Example/Pods/Kiwi/Classes/Core/KWStringUtilities.m
+OC/Example/Pods/Kiwi/Classes/Core/KWSymbolicator.h
+OC/Example/Pods/Kiwi/Classes/Core/KWSymbolicator.m
+OC/Example/Pods/Kiwi/Classes/Core/KWValue.h
+OC/Example/Pods/Kiwi/Classes/Core/KWValue.m
+OC/Example/Pods/Kiwi/Classes/Core/KWWorkarounds.h
+OC/Example/Pods/Kiwi/Classes/Core/KWWorkarounds.m
+OC/Example/Pods/Kiwi/Classes/Core/Kiwi.h
+OC/Example/Pods/Kiwi/Classes/Core/KiwiBlockMacros.h
+OC/Example/Pods/Kiwi/Classes/Core/KiwiConfiguration.h
+OC/Example/Pods/Kiwi/Classes/Core/KiwiMacros.h
+OC/Example/Pods/Kiwi/Classes/Core/NSInvocation+KiwiAdditions.h
+OC/Example/Pods/Kiwi/Classes/Core/NSInvocation+KiwiAdditions.m
+OC/Example/Pods/Kiwi/Classes/Core/NSInvocation+OCMAdditions.h
+OC/Example/Pods/Kiwi/Classes/Core/NSInvocation+OCMAdditions.m
+OC/Example/Pods/Local Podspecs/JKSandBoxManager.podspec.json
+OC/Example/Pods/Manifest.lock
