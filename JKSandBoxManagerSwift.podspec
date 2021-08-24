@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKSandBoxManagerSwift'
-  s.version          = '0.1.7.5'
+  s.version          = '0.1.7.6'
   s.summary          = 'this is a tool to operate sandbox.'
 
 # This description is used to generate tags and improve search results.
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
   this is a tool to operate sandbox.it will update with the needs
                        DESC
 
-  s.homepage         = 'https://github.com/xindizhiyin2014/JKSandBoxManagerSwift'
+  s.homepage         = 'https://github.com/xindizhiyin2014/JKSandBoxManager'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'xindizhiyin2014' => '929097264@qq.com' }
-  s.source           = { :git => 'https://github.com/xindizhiyin2014/JKSandBoxManagerSwift.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/xindizhiyin2014/JKSandBoxManager.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
