@@ -15,7 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		61844013B4052B775FB27112 /* Pods_JKSandBoxManagerSwift_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AB5B1F655DE3516728DE93 /* Pods_JKSandBoxManagerSwift_Tests.framework */; };
-		BDE7D29126D50EC30057FB8F /* JKSandBoxManagerSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = BDE7D29026D50EC30057FB8F /* JKSandBoxManagerSwift.podspec */; };
+		BDE7D29C26D91E440057FB8F /* JKSandBoxManagerSwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = BDE7D29B26D91E440057FB8F /* JKSandBoxManagerSwift.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		9F067DD72B8C7F4529C14491 /* Pods-JKSandBoxManagerSwift_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSandBoxManagerSwift_Tests.debug.xcconfig"; path = "Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB46DA5AC4BD2494869244C5 /* Pods-JKSandBoxManagerSwift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSandBoxManagerSwift_Tests.release.xcconfig"; path = "Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		BDE7D29026D50EC30057FB8F /* JKSandBoxManagerSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JKSandBoxManagerSwift.podspec; path = ../../JKSandBoxManagerSwift.podspec; sourceTree = "<group>"; };
+		BDE7D29B26D91E440057FB8F /* JKSandBoxManagerSwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JKSandBoxManagerSwift.podspec; path = ../../JKSandBoxManagerSwift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D5D070CEA1273D39E31D6748 /* Pods_JKSandBoxManagerSwift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSandBoxManagerSwift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D3088EC40C59A9165C16B5 /* Pods-JKSandBoxManagerSwift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSandBoxManagerSwift_Example.release.xcconfig"; path = "Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,7 +151,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				BDE7D29026D50EC30057FB8F /* JKSandBoxManagerSwift.podspec */,
+				BDE7D29B26D91E440057FB8F /* JKSandBoxManagerSwift.podspec */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				BDE7D29126D50EC30057FB8F /* JKSandBoxManagerSwift.podspec in Resources */,
+				BDE7D29C26D91E440057FB8F /* JKSandBoxManagerSwift.podspec in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);

@@ -3,7 +3,7 @@ use_frameworks!
 platform :ios, '9.0'
 
 target 'JKSandBoxManagerSwift_Example' do
-  pod 'JKSandBoxManagerSwift', :path => '../'
+  pod 'JKSandBoxManagerSwift', :path => '../../'
 
   target 'JKSandBoxManagerSwift_Tests' do
     inherit! :search_paths
