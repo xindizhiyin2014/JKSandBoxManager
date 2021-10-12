@@ -325,3 +325,78 @@ Swift/Example/Pods/Nimble/Sources/NimbleObjectiveC/NMBExceptionCapture.m
 Swift/Example/Pods/Nimble/Sources/NimbleObjectiveC/NMBStringify.h
 Swift/Example/Pods/Nimble/Sources/NimbleObjectiveC/NMBStringify.m
 Swift/Example/Pods/Nimble/Sources/NimbleObjectiveC/XCTestObservationCenter+Register.m
+Swift/Example/Pods/Manifest.lock
+Swift/Example/Pods/Pods.xcodeproj/project.pbxproj
+Swift/Example/Pods/Quick/LICENSE
+Swift/Example/Pods/Quick/README.md
+Swift/Example/Pods/Quick/Sources/Quick/Behavior.swift
+Swift/Example/Pods/Quick/Sources/Quick/Callsite.swift
+Swift/Example/Pods/Quick/Sources/Quick/Configuration/Configuration.swift
+Swift/Example/Pods/Quick/Sources/Quick/Configuration/QuickConfiguration.swift
+Swift/Example/Pods/Quick/Sources/Quick/DSL/DSL.swift
+Swift/Example/Pods/Quick/Sources/Quick/DSL/World+DSL.swift
+Swift/Example/Pods/Quick/Sources/Quick/ErrorUtility.swift
+Swift/Example/Pods/Quick/Sources/Quick/Example.swift
+Swift/Example/Pods/Quick/Sources/Quick/ExampleGroup.swift
+Swift/Example/Pods/Quick/Sources/Quick/ExampleMetadata.swift
+Swift/Example/Pods/Quick/Sources/Quick/Filter.swift
+Swift/Example/Pods/Quick/Sources/Quick/Hooks/Closures.swift
+Swift/Example/Pods/Quick/Sources/Quick/Hooks/ExampleHooks.swift
+Swift/Example/Pods/Quick/Sources/Quick/Hooks/HooksPhase.swift
+Swift/Example/Pods/Quick/Sources/Quick/Hooks/SuiteHooks.swift
+Swift/Example/Pods/Quick/Sources/Quick/NSBundle+CurrentTestBundle.swift
+Swift/Example/Pods/Quick/Sources/Quick/QuickSelectedTestSuiteBuilder.swift
+Swift/Example/Pods/Quick/Sources/Quick/QuickTestObservation.swift
+Swift/Example/Pods/Quick/Sources/Quick/QuickTestSuite.swift
+Swift/Example/Pods/Quick/Sources/Quick/String+C99ExtendedIdentifier.swift
+Swift/Example/Pods/Quick/Sources/Quick/URL+FileName.swift
+Swift/Example/Pods/Quick/Sources/Quick/World.swift
+Swift/Example/Pods/Quick/Sources/QuickObjCRuntime/QuickSpecBase.m
+Swift/Example/Pods/Quick/Sources/QuickObjCRuntime/include/QuickSpecBase.h
+Swift/Example/Pods/Quick/Sources/QuickObjectiveC/Configuration/QuickConfiguration.h
+Swift/Example/Pods/Quick/Sources/QuickObjectiveC/Configuration/QuickConfiguration.m
+Swift/Example/Pods/Quick/Sources/QuickObjectiveC/DSL/QCKDSL.h
+Swift/Example/Pods/Quick/Sources/QuickObjectiveC/DSL/QCKDSL.m
+Swift/Example/Pods/Quick/Sources/QuickObjectiveC/Quick.h
+Swift/Example/Pods/Quick/Sources/QuickObjectiveC/QuickSpec.h
+Swift/Example/Pods/Quick/Sources/QuickObjectiveC/QuickSpec.m
+Swift/Example/Pods/Quick/Sources/QuickObjectiveC/XCTestSuite+QuickTestSuiteBuilder.m
+Swift/Example/Pods/Target Support Files/JKSandBoxManagerSwift/JKSandBoxManagerSwift-Info.plist
+Swift/Example/Pods/Target Support Files/JKSandBoxManagerSwift/JKSandBoxManagerSwift-dummy.m
+Swift/Example/Pods/Target Support Files/JKSandBoxManagerSwift/JKSandBoxManagerSwift-prefix.pch
+Swift/Example/Pods/Target Support Files/JKSandBoxManagerSwift/JKSandBoxManagerSwift-umbrella.h
+Swift/Example/Pods/Target Support Files/JKSandBoxManagerSwift/JKSandBoxManagerSwift.debug.xcconfig
+Swift/Example/Pods/Target Support Files/JKSandBoxManagerSwift/JKSandBoxManagerSwift.modulemap
+Swift/Example/Pods/Target Support Files/JKSandBoxManagerSwift/JKSandBoxManagerSwift.release.xcconfig
+Swift/Example/Pods/Target Support Files/Nimble/Nimble-Info.plist
+Swift/Example/Pods/Target Support Files/Nimble/Nimble-dummy.m
+Swift/Example/Pods/Target Support Files/Nimble/Nimble-prefix.pch
+Swift/Example/Pods/Target Support Files/Nimble/Nimble-umbrella.h
+Swift/Example/Pods/Target Support Files/Nimble/Nimble.debug.xcconfig
+Swift/Example/Pods/Target Support Files/Nimble/Nimble.modulemap
+Swift/Example/Pods/Target Support Files/Nimble/Nimble.release.xcconfig
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example-Info.plist
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example-acknowledgements.markdown
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example-acknowledgements.plist
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example-dummy.m
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example-frameworks.sh
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example-umbrella.h
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example.debug.xcconfig
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example.modulemap
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Example/Pods-JKSandBoxManagerSwift_Example.release.xcconfig
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests-Info.plist
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests-acknowledgements.markdown
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests-acknowledgements.plist
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests-dummy.m
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests-frameworks.sh
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests-umbrella.h
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests.debug.xcconfig
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests.modulemap
+Swift/Example/Pods/Target Support Files/Pods-JKSandBoxManagerSwift_Tests/Pods-JKSandBoxManagerSwift_Tests.release.xcconfig
+Swift/Example/Pods/Target Support Files/Quick/Quick-Info.plist
+Swift/Example/Pods/Target Support Files/Quick/Quick-dummy.m
+Swift/Example/Pods/Target Support Files/Quick/Quick-prefix.pch
+Swift/Example/Pods/Target Support Files/Quick/Quick-umbrella.h
+Swift/Example/Pods/Target Support Files/Quick/Quick.debug.xcconfig
+Swift/Example/Pods/Target Support Files/Quick/Quick.modulemap
+Swift/Example/Pods/Target Support Files/Quick/Quick.release.xcconfig

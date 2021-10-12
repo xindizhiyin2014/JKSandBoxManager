@@ -1,10 +1,10 @@
 PODS:
-  - JKSandBoxManagerSwift (0.1.0)
+  - JKSandBoxManagerSwift (0.1.7.7)
   - Nimble (8.0.9)
   - Quick (2.2.1)
 
 DEPENDENCIES:
-  - JKSandBoxManagerSwift (from `../`)
+  - JKSandBoxManagerSwift (from `../../`)
   - Nimble (~> 8.0.7)
   - Quick (~> 2.2.0)
 
@@ -15,13 +15,13 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   JKSandBoxManagerSwift:
-    :path: "../"
+    :path: "../../"
 
 SPEC CHECKSUMS:
-  JKSandBoxManagerSwift: adec240aff6fd0c544a92be3e79068a5d70fc118
+  JKSandBoxManagerSwift: aa47205ce8cbb092953245a2cd56270d16e6cc3d
   Nimble: 98b888285a615fd34f20e61753cf58ea1402bde4
   Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
 
-PODFILE CHECKSUM: 0fc260f668c6d2044fa5d079323685bd2d56a55e
+PODFILE CHECKSUM: bbc35e2fe0eeeba52fc31b1e584674ba907bd31a
 
 COCOAPODS: 1.10.1

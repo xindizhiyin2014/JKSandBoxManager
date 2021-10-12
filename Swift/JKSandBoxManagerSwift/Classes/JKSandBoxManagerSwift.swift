@@ -344,7 +344,8 @@ public class JKSandBoxManagerSwift {
             } else {
                 let frameworks = Bundle.allFrameworks
                 for tempBundle:Bundle in frameworks {
-                    let frameworkName = fileNameWithoutExtension(filePath: tempBundle.bundlePath)
+                    let url = URL.init(fileURLWithPath: tempBundle.bundlePath)
+                    let frameworkName = url.deletingPathExtension().lastPathComponent
                     if frameworkName == podName {
                         bundle = tempBundle
                         break
