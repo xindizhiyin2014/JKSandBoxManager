@@ -334,35 +334,35 @@ public class JKSandBoxManagerSwift {
     ///   - bundleName: bundle名字
     /// - Returns: bundle对象
     public class func bundle(podName:String?, bundleName:String?) -> Bundle? {
-        var bundle:Bundle?
+        var bundleInstance:Bundle?
         if podName == nil {
-            bundle = .main
+            bundleInstance = .main
         } else {
             let bundleClass: AnyClass? = NSClassFromString(podName!)
             if bundleClass != nil {
-                bundle = Bundle.init(for: bundleClass!)
+                bundleInstance = Bundle.init(for: bundleClass!)
             } else {
                 let frameworks = Bundle.allFrameworks
                 for tempBundle:Bundle in frameworks {
                     let url = URL.init(fileURLWithPath: tempBundle.bundlePath)
                     let frameworkName = url.deletingPathExtension().lastPathComponent
                     if frameworkName == podName {
-                        bundle = tempBundle
+                        bundleInstance = tempBundle
                         break
                     }
                 }
             }
         }
         
-        let url:URL? = bundle?.url(forResource: bundleName, withExtension: "bundle")
+        let url:URL? = bundleInstance?.url(forResource: bundleName, withExtension: "bundle")
         if url == nil {
             return nil
         }
-        bundle = Bundle.init(url: url!)
-        if bundle?.isLoaded == false {
-            bundle?.load()
+        bundleInstance = Bundle.init(url: url!)
+        if bundleInstance?.isLoaded == false {
+            bundleInstance?.load()
         }
-        return bundle
+        return bundleInstance
     }
     
     /// 获取文件路径,文件在pod库同名的bundle下
@@ -392,8 +392,8 @@ public class JKSandBoxManagerSwift {
     ///   - type: 文件类型
     /// - Returns: 文件路径
     public class func path(podName:String, bundleName:String?, fileName:String, type:String?) -> String? {
-        let bundle:Bundle? = bundle(podName: podName, bundleName: bundleName)
-        let filePath = bundle?.path(forResource: fileName, ofType: type)
+        let bundleInstance:Bundle? = bundle(podName: podName, bundleName: bundleName)
+        let filePath = bundleInstance?.path(forResource: fileName, ofType: type)
         return filePath
     }
     
@@ -403,11 +403,11 @@ public class JKSandBoxManagerSwift {
     ///   - nibName: nib文件名字
     /// - Returns: nib对象
     public class func nib(podName:String, nibName:String) -> UINib? {
-        let bundle:Bundle? = bundle(podName: podName)
-        if bundle == nil {
+        let bundleInstance:Bundle? = bundle(podName: podName)
+        if bundleInstance == nil {
             return nil
         }
-        let nib = bundle!.loadNibNamed(nibName, owner: nil, options: nil)?.last
+        let nib = bundleInstance!.loadNibNamed(nibName, owner: nil, options: nil)?.last
         if nib == nil {
             return nil
         }
@@ -423,11 +423,11 @@ public class JKSandBoxManagerSwift {
     ///   - name: storyboard文件名字
     /// - Returns: storyboard对象
     public class func storyboard(podName:String, name:String) -> UIStoryboard? {
-        let bundle:Bundle? = bundle(podName: podName)
-        if bundle == nil {
+        let bundleInstance:Bundle? = bundle(podName: podName)
+        if bundleInstance == nil {
             return nil
         }
-        let storyboard:UIStoryboard? = UIStoryboard.init(name: name, bundle: bundle)
+        let storyboard:UIStoryboard? = UIStoryboard.init(name: name, bundle: bundleInstance)
         return storyboard
     }
     
@@ -493,8 +493,8 @@ public class JKSandBoxManagerSwift {
         if podName == nil {
             return Bundle.main.localizedString(forKey: key, value: nil, table: nil)
         }
-        let bundle:Bundle? = bundle(podName: podName)
-        let value = bundle?.localizedString(forKey: key, value: nil, table: podName)
+        let bundleInstance:Bundle? = bundle(podName: podName)
+        let value = bundleInstance?.localizedString(forKey: key, value: nil, table: podName)
         return value
     }
 }
