@@ -385,6 +385,13 @@ public class JKSandBoxManagerSwift {
         path(podName: podName, bundleName: podName, fileName: fileName, type: type)
     }
     
+    /// mainBundle下的文件路径
+    /// - Parameter fileName: 文件名字
+    /// - Returns: 文件路径
+    public class func mainBundlePath(fileName:String) -> String? {
+        Bundle.main.path(forResource: fileName, ofType: nil)
+    }
+    
     /// 获取文件路径
     /// - Parameters:
     ///   - podName: pod库名字
