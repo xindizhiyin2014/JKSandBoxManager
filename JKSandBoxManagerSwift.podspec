@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKSandBoxManagerSwift'
-  s.version          = '0.1.8.0'
+  s.version          = '0.1.8.2'
   s.summary          = 'this is a tool to operate sandbox.'
 
 # This description is used to generate tags and improve search results.
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
-
+  s.osx.deployment_target = '10.11'
   s.source_files = 'Swift/JKSandBoxManagerSwift/Classes/**/*'
   
   # s.resource_bundles = {

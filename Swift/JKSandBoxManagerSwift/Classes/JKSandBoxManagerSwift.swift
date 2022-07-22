@@ -5,6 +5,7 @@
 //  Created by JackLee on 2021/8/24.
 //
 import Foundation
+import IOSurface
 
 extension String {
     var `extension`:String {
@@ -386,6 +387,13 @@ public class JKSandBoxManagerSwift {
         path(podName: podName, bundleName: podName, fileName: fileName, type: type)
     }
     
+    /// mainBundle下的文件路径
+    /// - Parameter fileName: 文件名字
+    /// - Returns: 文件路径
+    public class func mainBundlePath(fileName:String) -> String? {
+        Bundle.main.path(forResource: fileName, ofType: nil)
+    }
+    
     /// 获取文件路径
     /// - Parameters:
     ///   - podName: pod库名字
@@ -398,7 +406,7 @@ public class JKSandBoxManagerSwift {
         let filePath = bundleInstance?.path(forResource: fileName, ofType: type)
         return filePath
     }
-    
+    #if os(iOS)
     /// 创建nib对象
     /// - Parameters:
     ///   - podName: pod库名字
@@ -419,6 +427,9 @@ public class JKSandBoxManagerSwift {
         return nil
     }
     
+    #endif
+    
+#if os(iOS)
     /// 创建storyboard对象
     /// - Parameters:
     ///   - podName: pod库名字
@@ -432,7 +443,9 @@ public class JKSandBoxManagerSwift {
         let storyboard:UIStoryboard? = UIStoryboard.init(name: name, bundle: bundleInstance)
         return storyboard
     }
-    
+#endif
+
+#if os(iOS)
     /// 创建UIImage，文件在pod库同名的bundle内
     /// - Parameters:
     ///   - podName: pod库名字
@@ -452,7 +465,8 @@ public class JKSandBoxManagerSwift {
         let image:UIImage? = UIImage.init(named: imageName, in: bundle(podName: podName, bundleName: bundleName), compatibleWith: nil)
         return image
     }
-    
+#endif
+
     /// 根据key获取多语言文案，当前系统语言
     /// - Parameter key: 多语言对应的key
     /// - Returns: 对应的多语言文案
