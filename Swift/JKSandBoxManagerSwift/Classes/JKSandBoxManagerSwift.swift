@@ -146,6 +146,31 @@ public class JKSandBoxManagerSwift {
         return folders
     }
     
+    /// 获取某一路径下的满足要求的文件夹列表
+    /// - Parameters:
+    ///   - folderPath: 指定路径
+    ///   - folderNamesuffix: 文件夹名字后缀名
+    /// - Returns: 文件夹列表组成的数组
+    public class func folders(at folderPath:String,folderNamesuffix:String) -> Array<String>? {
+        if isExistDirectory(folderPath: folderPath) == false {
+            return nil
+        }
+        guard let dirEnum:FileManager.DirectoryEnumerator = FileManager.default.enumerator(atPath: folderPath) else {
+            return nil
+        }
+        var folders:[String] = []
+        while let fileName:String = dirEnum.nextObject() as? String {
+            let tmpFolderPath = "\(folderPath)/\(fileName)"
+            if isExistDirectory(folderPath: tmpFolderPath) == false {
+                continue
+            }
+            if fileName.hasSuffix(folderNamesuffix) == true {
+                folders.append(tmpFolderPath)
+            }
+        }
+        return folders
+    }
+    
     /// 判断某个路径下的文件是否存在
     /// - Parameter filePath: 文件路径
     /// - Returns: 文件是否存在的状态
