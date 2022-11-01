@@ -107,6 +107,7 @@ public class JKSandBoxManagerSwift {
         while let fileName:String = dirEnum.nextObject() as? String {
             let filePath = "\(folderPath)/\(fileName)"
             if isExistDirectory(folderPath: filePath) == true {
+                dirEnum.skipDescendents()
                 continue
             }
             if isExistFile(filePath: filePath) == false {
@@ -142,6 +143,7 @@ public class JKSandBoxManagerSwift {
                 continue
             }
             folders.append(tmpFolderPath)
+            dirEnum.skipDescendents()
         }
         return folders
     }
