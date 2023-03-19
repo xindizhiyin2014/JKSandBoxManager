@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'JKSandBoxManager_Example' do
-  pod 'JKSandBoxManager', :path => '../'
+  pod 'JKSandBoxManager', :path => '../../'
 
   target 'JKSandBoxManager_Tests' do
     inherit! :search_paths

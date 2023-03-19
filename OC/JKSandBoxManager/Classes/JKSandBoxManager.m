@@ -50,30 +50,36 @@
     return directory;
 }
 
-+ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath
++ (NSArray *)filesWithoutFolderAtPath:(NSString *)folderPath
 {
-    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];
+    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:folderPath];
     //新建数组，存放各个文件路径
     NSMutableArray *files = [NSMutableArray new];
     //遍历目录迭代器，获取各个文件路径
     NSString *fileName=nil;
     while (fileName = [dirEnum nextObject]) {
-        NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@",filePath,fileName];
+        NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@",folderPath,fileName];
         BOOL isDirectory = [self isExistDirectory:tempFilePath];
-        if (!isDirectory && ![fileName containsString:@"/"]) {
-            [files addObject:fileName];
+        if (isDirectory == YES) {
+            [dirEnum skipDescendants];
+            continue;
+        } else {
+            if (![fileName containsString:@"/"]) {
+                [files addObject:fileName];
+            }
         }
+        
     }
     return [files copy];
 }
 
-+ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath
++ (NSArray *)filesWithoutFolderAtPath:(NSString *)folderPath
                            extensions:(NSArray <NSString *>*)exts
 {
-    NSArray *array = [self filesWithoutFolderAtPath:filePath];
+    NSArray *array = [self filesWithoutFolderAtPath:folderPath];
     NSMutableArray *files = [NSMutableArray new];
     for (NSString *fileName in array) {
-        NSString *ext = [self getPathExtensionWith:filePath];
+        NSString *ext = [self getPathExtensionWith:folderPath];
         if ([exts containsObject:ext]) {
             [files addObject:fileName];
         }
@@ -81,14 +87,19 @@
     return [files copy];
 }
 
-+ (NSArray *)filesWithFolderAtPath:(NSString *)filePath
++ (NSArray *)filesWithFolderAtPath:(NSString *)folderPath
 {
-    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];
+    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:folderPath];
     //新建数组，存放各个文件路径
     NSMutableArray *files = [NSMutableArray new];
     //遍历目录迭代器，获取各个文件路径
     NSString *fileName=nil;
     while (fileName = [dirEnum nextObject]) {
+        NSString *path = [NSString stringWithFormat:@"%@/%@",folderPath,fileName];
+        if ([JKSandBoxManager isExistDirectory:path]) {
+            [dirEnum skipDescendants];
+        }
+        
         if (![fileName isEqualToString:@".DS_Store"]) {//存在后缀名的文件
             [files addObject:fileName];
         }
@@ -97,17 +108,18 @@
     return [files copy];
 }
 
-+ (NSArray *)foldersAtPath:(NSString *)filePath
++ (NSArray *)foldersAtPath:(NSString *)folderPath
 {
-    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:filePath];
+    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:folderPath];
     //新建数组，存放各个文件路径
     NSMutableArray *files = [NSMutableArray new];
     //遍历目录迭代器，获取各个文件路径
     NSString *fileName=nil;
     while (fileName = [dirEnum nextObject]) {
-        NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@",filePath,fileName];
+        NSString *tempFilePath = [NSString stringWithFormat:@"%@/%@",folderPath,fileName];
         BOOL isDirectory = [self isExistDirectory:tempFilePath];
         if (isDirectory) {
+            [dirEnum skipDescendants];
             [files addObject:fileName];
         }
     }

@@ -66,36 +66,36 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  获取某一路径下的文件列表，不包含文件夹
  
- @param filePath 文件的路径
+ @param folderPath 文件夹的路径
  @return 文件列表
  */
-+ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath;
++ (NSArray *)filesWithoutFolderAtPath:(NSString *)folderPath;
 
 /**
  获取某一路径下的符合一定要求后缀名的文件列表，不包含文件夹，
  
- @param filePath 文件的路径
+ @param folderPath 文件夹的路径
  @param exts 符合要求的后缀名列表
  @return 文件名列表
  */
-+ (NSArray *)filesWithoutFolderAtPath:(NSString *)filePath
++ (NSArray *)filesWithoutFolderAtPath:(NSString *)folderPath
                            extensions:(NSArray <NSString *>*)exts;
 
 /**
  获取某一路径下的文件列表，包含文件夹
  
- @param filePath 文件的路径
+ @param folderPath 文件夹的路径
  @return 文件列表
  */
-+ (NSArray *)filesWithFolderAtPath:(NSString *)filePath;
++ (NSArray *)filesWithFolderAtPath:(NSString *)folderPath;
 
 /**
  获取某一路径下的文件夹列表
 
- @param filePath 文件的沙盒路径
+ @param folderPath 文件夹的沙盒路径
  @return 文件夹列表
  */
-+ (NSArray *)foldersAtPath:(NSString *)filePath;
++ (NSArray *)foldersAtPath:(NSString *)folderPath;
 
 /**
  判断某个路径下的文件是否存在

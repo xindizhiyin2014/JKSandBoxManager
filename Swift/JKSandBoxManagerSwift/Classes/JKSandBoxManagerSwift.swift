@@ -126,6 +126,40 @@ public class JKSandBoxManagerSwift {
         return files
     }
     
+    /// 获取该文件夹下所有符合条件的文件，嵌套的文件夹也会遍历
+    /// - Parameters:
+    ///   - folderPath: 文件夹路径
+    ///   - extensions: 文件后缀
+    /// - Returns: 文件列表
+    public class func files(at folderPath:String, extensions:Array<String>?) -> Array<String>? {
+        if isExistDirectory(folderPath: folderPath) == false {
+            return nil
+        }
+        guard let dirEnum:FileManager.DirectoryEnumerator = FileManager.default.enumerator(atPath: folderPath) else {
+            return nil
+        }
+        var files:[String] = []
+        while let fileName:String = dirEnum.nextObject() as? String {
+            let filePath = "\(folderPath)/\(fileName)"
+            if isExistDirectory(folderPath: filePath) == true {
+                continue
+            }
+            if isExistFile(filePath: filePath) == false {
+                continue
+            }
+            
+            let pathExtension = filePath.extension
+            if extensions == nil {
+                files.append(filePath)
+            } else {
+                if extensions?.contains(pathExtension) == true {
+                    files.append(filePath)
+                }
+            }
+        }
+        return files
+    }
+    
     /// 获取某一路径下的文件夹列表
     /// - Parameter folderPath: 文件夹路径
     /// - Returns: 文件夹路径列表
@@ -167,6 +201,31 @@ public class JKSandBoxManagerSwift {
                 continue
             }
             if fileName.hasSuffix(folderNamesuffix) == true {
+                folders.append(tmpFolderPath)
+            }
+        }
+        return folders
+    }
+    
+    /// 获取某一路径下的满足要求的文件夹列表
+    /// - Parameters:
+    ///   - folderPath: 指定路径
+    ///   - folderNamePreffix: 文件夹名字前缀
+    /// - Returns: 文件夹列表组成的数组
+    public class func folders(at folderPath:String,folderNamePreffix:String) -> Array<String>? {
+        if isExistDirectory(folderPath: folderPath) == false {
+            return nil
+        }
+        guard let dirEnum:FileManager.DirectoryEnumerator = FileManager.default.enumerator(atPath: folderPath) else {
+            return nil
+        }
+        var folders:[String] = []
+        while let fileName:String = dirEnum.nextObject() as? String {
+            let tmpFolderPath = "\(folderPath)/\(fileName)"
+            if isExistDirectory(folderPath: tmpFolderPath) == false {
+                continue
+            }
+            if fileName.hasPrefix(folderNamePreffix) == true {
                 folders.append(tmpFolderPath)
             }
         }
