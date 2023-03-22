@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0410D00C1F0F53EE001A708E /* JKSandBoxManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0410D00B1F0F53EE001A708E /* JKSandBoxManagerSpec.m */; };
+		33B0A2E329CB44EC004C31B4 /* JKSandBoxManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 33B0A2E029CB44EC004C31B4 /* JKSandBoxManager.podspec */; };
+		33B0A2E429CB44EC004C31B4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 33B0A2E129CB44EC004C31B4 /* README.md */; };
+		33B0A2E529CB44EC004C31B4 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 33B0A2E229CB44EC004C31B4 /* LICENSE */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -43,9 +46,10 @@
 /* Begin PBXFileReference section */
 		0410D00B1F0F53EE001A708E /* JKSandBoxManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKSandBoxManagerSpec.m; sourceTree = "<group>"; };
 		1FA2FCEE8593E464D94C0117 /* Pods_JKSandBoxManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JKSandBoxManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B0A2E029CB44EC004C31B4 /* JKSandBoxManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = JKSandBoxManager.podspec; path = ../../JKSandBoxManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		33B0A2E129CB44EC004C31B4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		33B0A2E229CB44EC004C31B4 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../../LICENSE; sourceTree = "<group>"; };
 		3640ED768C2D1F1A62FAEE3C /* Pods-JKSandBoxManager_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSandBoxManager_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4D4E8DB7F725401350A7A617 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		56AC52B8A806343F18B81CDE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		59D6C51E90F7E020A00162D0 /* Pods-JKSandBoxManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSandBoxManager_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKSandBoxManager_Example/Pods-JKSandBoxManager_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* JKSandBoxManager_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JKSandBoxManager_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -66,7 +70,6 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6BC8CADAD97411E25AC55719 /* JKSandBoxManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JKSandBoxManager.podspec; path = ../JKSandBoxManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6F34E5EFE070D8BB99213AAB /* Pods-JKSandBoxManager_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JKSandBoxManager_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JKSandBoxManager_Tests/Pods-JKSandBoxManager_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,9 +191,9 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				6BC8CADAD97411E25AC55719 /* JKSandBoxManager.podspec */,
-				4D4E8DB7F725401350A7A617 /* README.md */,
-				56AC52B8A806343F18B81CDE /* LICENSE */,
+				33B0A2E029CB44EC004C31B4 /* JKSandBoxManager.podspec */,
+				33B0A2E229CB44EC004C31B4 /* LICENSE */,
+				33B0A2E129CB44EC004C31B4 /* README.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -289,9 +292,12 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				BDCA66FE21DF5A0D002E6C34 /* 456.bundle in Resources */,
+				33B0A2E329CB44EC004C31B4 /* JKSandBoxManager.podspec in Resources */,
 				BDDB26BA2166F0F300A0E7BD /* abcd.png in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				33B0A2E529CB44EC004C31B4 /* LICENSE in Resources */,
+				33B0A2E429CB44EC004C31B4 /* README.md in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

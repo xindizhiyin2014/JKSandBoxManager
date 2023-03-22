@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'JKSandBoxManager'
-  s.version          = '0.1.7.4'
+  s.version          = '0.1.8.4'
   s.summary          = 'the manager of sandbox,it contain the operations of sandbox.'
 
 # This description is used to generate tags and improve search results.
